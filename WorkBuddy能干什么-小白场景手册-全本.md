@@ -38,7 +38,7 @@
 ### 第 1 篇：提醒小助手——定时把你的待办推到微信
 
 <div class="xref">
-<b>↪ 想升级成全自动？</b>这篇的提醒是手动建的。想让它每天自动把简报发到你邮箱？看进阶指南第 15 章《每日工作简报自动化》（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#15-2" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 想升级成全自动？</b>这篇的提醒是手动建的。想让它每天自动把简报发到你邮箱？看进阶指南第 15 章《每日工作简报自动化》（<a href="jinjie/#15-2" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 之前大家都在聊海外 AI 工具，出于对国产的支持，以及，确实有些能力国产 AI 工具是真的实打实的好用，所以，开个不定期更新的小系列"WorkBuddy 能干什么？"。
@@ -400,7 +400,7 @@
 ### 第 14 篇：帮你搭一个个人网站——不懂代码，也能拥有自己的网页
 
 <div class="xref">
-<b>↪ 想做扎实？</b>入门篇只求跑通。想把网站做扎实、做安全（小步快跑、上线前验收、别把密码写进页面）？看进阶指南第 9 章《让 AI 帮你搭一个网站》（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#9-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 想做扎实？</b>入门篇只求跑通。想把网站做扎实、做安全（小步快跑、上线前验收、别把密码写进页面）？看进阶指南第 9 章《让 AI 帮你搭一个网站》（<a href="jinjie/#9-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第十四篇，搭网站。很多人觉得"做网站"是程序员的事，其实现在小白也能做。
@@ -430,7 +430,7 @@
 ### 第 15 篇：帮你做一个小工具——重复的事，交给它自动化
 
 <div class="xref">
-<b>↪ 想搞懂拆解方法？</b>进阶指南第 10 章用「输入 → 处理 → 输出」三段法，教你把任何工具讲清楚（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#10-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 想搞懂拆解方法？</b>进阶指南第 10 章用「输入 → 处理 → 输出」三段法，教你把任何工具讲清楚（<a href="jinjie/#10-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第十五篇，做小工具。
@@ -462,7 +462,7 @@
 ### 第 16 篇：每日工作简报——你不在，它替你汇总
 
 <div class="xref">
-<b>↪ 想自己设计定时任务？</b>进阶指南第 11 章讲清「触发时间 + 任务指令 + 工作空间」三要素，你就能设计任意自动化（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#11-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 想自己设计定时任务？</b>进阶指南第 11 章讲清「触发时间 + 任务指令 + 工作空间」三要素，你就能设计任意自动化（<a href="jinjie/#11-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第十六篇，定时自动干活。
@@ -522,7 +522,7 @@
 ### 第 18 篇：连接邮箱——AI 帮你读邮件、盯邮件
 
 <div class="xref">
-<b>↪ 想搞清原理和边界？</b>进阶指南第 12 章把连接器讲成「桥」，并提醒授权前看清权限（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#12-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 想搞清原理和边界？</b>进阶指南第 12 章把连接器讲成「桥」，并提醒授权前看清权限（<a href="jinjie/#12-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第十八篇，连邮箱。
@@ -581,7 +581,7 @@
 ### 第 20 篇：装个技能——给 AI 加 buff
 
 <div class="xref">
-<b>↪ 该装技能还是请专家？</b>进阶指南第 13 章帮你分清两者（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 该装技能还是请专家？</b>进阶指南第 13 章帮你分清两者（<a href="jinjie/#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第二十篇，装技能。前面学的都是"基础操作"，从这篇开始升级。
@@ -611,7 +611,7 @@
 ### 第 21 篇：找个专家——专业的事问专业的人
 
 <div class="xref">
-<b>↪ 专家背后是什么机制？</b>进阶指南第 13 章《技能与专家》讲清「能力增强 vs 角色切换」（<a href="https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
+<b>↪ 专家背后是什么机制？</b>进阶指南第 13 章《技能与专家》讲清「能力增强 vs 角色切换」（<a href="jinjie/#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
 </div>
 
 第二十一篇，找专家。

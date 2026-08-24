@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WorkBuddy 能干什么：小白 AI 实用场景集</title>
-<meta name="description" content="22 篇场景短文，每篇解决一个具体问题，给一段能直接抄的 Prompt。翻到哪篇，用到哪篇。">
+<title>WorkBuddy 进阶指南：从会用到懂它</title>
+<meta name="description" content="五大板块十六章系统教程，讲清原理，每段附可直接抄的指令。给已经用过 WorkBuddy、想举一反三的人。">
 <style>
 :root{
   --blue:#2563eb; --blue-dark:#1d4ed8; --blue-soft:#eff6ff;
@@ -20,8 +20,6 @@ body{
   background:var(--bg); color:var(--ink); line-height:1.9; font-size:17px;
   -webkit-font-smoothing:antialiased;
 }
-
-/* ===== 顶栏（移动端） ===== */
 .topbar{
   position:sticky; top:0; z-index:60; display:none; align-items:center; gap:10px;
   background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
@@ -33,26 +31,24 @@ body{
 }
 .topbar .tb-title{font-weight:700;font-size:15px;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* ===== Hero ===== */
 .hero{
-  background:linear-gradient(160deg,#eff6ff 0%,#f8fafc 55%,#f6f8fb 100%);
-  border-bottom:1px solid var(--line); padding:64px 24px 48px; text-align:center;
+  background:linear-gradient(160deg,#1e293b 0%,#334155 45%,#2563eb 140%);
+  border-bottom:1px solid var(--line); padding:64px 24px 48px; text-align:center; color:#fff;
 }
 .hero .kicker{
-  display:inline-block; font-size:13px; font-weight:600; color:var(--blue);
-  background:#dbeafe; border-radius:999px; padding:4px 14px; margin-bottom:18px;
+  display:inline-block; font-size:13px; font-weight:600; color:#bfdbfe;
+  background:rgba(255,255,255,.12); border-radius:999px; padding:4px 14px; margin-bottom:18px;
 }
-.hero h1{font-size:clamp(30px,5vw,44px); letter-spacing:1px; color:#0f172a;}
-.hero .sub{font-size:clamp(16px,2.4vw,20px); color:var(--ink-2); margin-top:10px; font-weight:500;}
-.hero .tagline{max-width:640px; margin:18px auto 0; color:var(--ink-2); font-size:15px;}
+.hero h1{font-size:clamp(30px,5vw,44px); letter-spacing:1px; color:#fff;}
+.hero .sub{font-size:clamp(16px,2.4vw,20px); color:#e2e8f0; margin-top:10px; font-weight:500;}
+.hero .tagline{max-width:660px; margin:18px auto 0; color:#cbd5e1; font-size:15px;}
 .hero .stats{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:24px;}
 .hero .stat{
-  background:#fff; border:1px solid var(--line); border-radius:999px;
-  padding:6px 16px; font-size:13px; color:var(--ink-2);
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:999px;
+  padding:6px 16px; font-size:13px; color:#e2e8f0;
 }
-.hero .stat b{color:var(--blue);}
+.hero .stat b{color:#fff;}
 
-/* ===== 布局 ===== */
 .layout{max-width:1200px; margin:0 auto; display:flex; gap:40px; padding:0 24px 80px;}
 .sidebar{
   width:280px; flex-shrink:0; position:sticky; top:0; align-self:flex-start;
@@ -76,7 +72,6 @@ body{
 .content{flex:1; min-width:0; max-width:860px;}
 .backdrop{display:none;}
 
-/* ===== 正文排版 ===== */
 .content article{padding-top:36px;}
 .content h2{
   display:flex; align-items:center; gap:12px;
@@ -95,6 +90,14 @@ body{
   content:""; width:14px; height:14px; border-radius:4px;
   background:var(--blue); flex-shrink:0; align-self:center; display:inline-block;
 }
+.content h4{
+  font-size:16px; color:var(--blue-dark); font-weight:700; margin:24px 0 10px;
+  display:flex; align-items:center; gap:8px; scroll-margin-top:24px;
+}
+.content h4::before{
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:var(--blue); flex-shrink:0; display:inline-block;
+}
 .chapter{
   background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
   box-shadow:var(--shadow); padding:28px 30px; margin-bottom:28px;
@@ -108,12 +111,11 @@ body{
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.86em; background:#eef2ff; color:#4338ca; border-radius:6px; padding:1px 6px;
 }
-/* Prompt 卡片 */
 blockquote.prompt{
   position:relative; background:var(--prompt-bg); color:var(--prompt-fg);
   border-radius:12px; padding:22px 20px 20px; margin:14px 0 18px;
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.92em; line-height:1.9; overflow-x:auto;
+  font-size:.92em; line-height:1.9; overflow-x:auto; white-space:pre-wrap;
 }
 blockquote.prompt p{margin-bottom:8px; color:var(--prompt-fg);}
 blockquote.prompt p:last-child{margin-bottom:0;}
@@ -125,7 +127,6 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 }
 .copy-btn:hover{background:var(--blue); color:#fff; border-color:var(--blue);}
 .copy-btn.done{background:#22c55e; color:#fff; border-color:#22c55e;}
-/* 表格 */
 .content table{
   width:100%; border-collapse:collapse; margin:14px 0 18px; font-size:14.5px;
   background:#fff; border-radius:10px; overflow:hidden;
@@ -140,7 +141,6 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 .content hr{border:none;border-top:1px dashed var(--line);margin:28px 0;}
 .chapter hr{display:none;}
 
-/* 反馈区 */
 .feedback{margin:6px 0 0;}
 .feedback .fb-inner{
   background:linear-gradient(160deg,#eff6ff,#f8fafc);
@@ -158,7 +158,6 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 .feedback .fb-btn:hover{background:var(--blue-dark); transform:translateY(-1px);}
 .feedback .fb-note{margin:14px 0 0; font-size:12.5px; color:var(--ink-3);}
 
-/* 小助理二维码卡 */
 .assistant{margin:36px 0 8px;}
 .assistant .a-card{
   background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
@@ -186,7 +185,6 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 .relate a{color:var(--blue-dark); font-weight:600;}
 .relate a:hover{text-decoration:underline;}
 
-/* 回到顶部 */
 .top-btn{
   position:fixed; right:26px; bottom:26px; z-index:50;
   background:#0f172a; color:#fff; border:none; border-radius:999px;
@@ -195,7 +193,6 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 }
 .top-btn.show{opacity:1; pointer-events:auto;}
 
-/* ===== 响应式 ===== */
 @media (max-width:1023px){
   .topbar{display:flex;}
   .sidebar{
@@ -223,62 +220,53 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 </head>
 <body>
 <header class="hero">
-  <span class="kicker">小白友好 · 零基础可用</span>
-  <h1>WorkBuddy 能干什么</h1>
-  <div class="sub">小白 AI 实用场景集</div>
-  <p class="tagline">不是教程，是手册。每篇解决一个真实问题，给一段能直接抄的指令。读 3 分钟，就能上手。</p>
+  <span class="kicker">进阶指南 · 给用过的你</span>
+  <h1>WorkBuddy 进阶指南</h1>
+  <div class="sub">从「会用」到「懂它怎么干活」</div>
+  <p class="tagline">不是入门手册，是系统教程。五大板块、十六章，讲清原理，但每段都给你一段能直接抄的指令。</p>
   <div class="stats">
-    <span class="stat"><b>22</b> 篇场景</span>
-    <span class="stat">每篇 <b>3 分钟</b>读完</span>
+    <span class="stat"><b>16</b> 章系统讲解</span>
+    <span class="stat"><b>5</b> 大能力板块</span>
     <span class="stat">手机 / 电脑都能看</span>
   </div>
 </header>
 
 <div class="topbar">
   <button class="menu-btn" id="menuBtn" type="button">☰ 目录</button>
-  <span class="tb-title">WorkBuddy 能干什么</span>
+  <span class="tb-title">WorkBuddy 进阶指南</span>
 </div>
 
 <div class="layout">
   <nav class="sidebar" id="sidebar">
     <div class="sb-head">全书目录</div>
     <ul id="toc">
-<li class="toc-group"><a href="#_1">写在前面：这本书怎么用</a></li>
-<li class="toc-group"><a href="#1">① 上手试试</a></li>
-<li class="toc-item"><a href="#1_1">第 1 篇：提醒小助手——定时把你的待办推到微信</a></li>
-<li class="toc-item"><a href="#2-ai">第 2 篇：清理电脑存储——让 AI 帮你腾硬盘</a></li>
-<li class="toc-item"><a href="#3">第 3 篇：帮你查资料——比搜索引擎更会总结</a></li>
-<li class="toc-item"><a href="#4">第 4 篇：帮你翻译——比翻译软件自然得多</a></li>
-<li class="toc-group"><a href="#2">② 帮你写</a></li>
-<li class="toc-item"><a href="#5">第 5 篇：帮你写周报 / 月报——把流水账变成像样的汇报</a></li>
-<li class="toc-item"><a href="#6">第 6 篇：帮你写邮件——请假、催款、邀请，一句话搞定</a></li>
-<li class="toc-item"><a href="#7-pdf">第 7 篇：帮你读 PDF——长文章一句话总结</a></li>
-<li class="toc-group"><a href="#3_1">③ 帮你算</a></li>
-<li class="toc-item"><a href="#8">第 8 篇：帮你做排班表 / 清单——杂事清单化，乱账理清楚</a></li>
-<li class="toc-item"><a href="#9-excel">第 9 篇：帮你分析 Excel 数据——一堆数字，让它讲人话</a></li>
-<li class="toc-item"><a href="#10">第 10 篇：帮你做图表——数据变成图，汇报更好看</a></li>
-<li class="toc-group"><a href="#4_1">④ 帮你做</a></li>
-<li class="toc-item"><a href="#11-ppt">第 11 篇：帮你做 PPT 汇报——从零到成品，只要几分钟</a></li>
-<li class="toc-item"><a href="#12">第 12 篇：帮你做文章配图——配图不求人，也不怕侵权</a></li>
-<li class="toc-item"><a href="#13">第 13 篇：帮你做短视频——文案、脚本、成片，一条龙</a></li>
-<li class="toc-group"><a href="#5_1">⑤ 帮你造</a></li>
-<li class="toc-item"><a href="#14">第 14 篇：帮你搭一个个人网站——不懂代码，也能拥有自己的网页</a></li>
-<li class="toc-item"><a href="#15">第 15 篇：帮你做一个小工具——重复的事，交给它自动化</a></li>
-<li class="toc-group"><a href="#6_1">⑥ 帮你盯</a></li>
-<li class="toc-item"><a href="#16">第 16 篇：每日工作简报——你不在，它替你汇总</a></li>
-<li class="toc-item"><a href="#17">第 17 篇：帮你整理文件夹——下载目录乱成粥？让它归类</a></li>
-<li class="toc-group"><a href="#7">⑦ 帮你连</a></li>
-<li class="toc-item"><a href="#18-ai">第 18 篇：连接邮箱——AI 帮你读邮件、盯邮件</a></li>
-<li class="toc-item"><a href="#19-ai">第 19 篇：连接网盘——AI 帮你管文件</a></li>
-<li class="toc-group"><a href="#8_1">⑧ 进阶一点</a></li>
-<li class="toc-item"><a href="#20-ai-buff">第 20 篇：装个技能——给 AI 加 buff</a></li>
-<li class="toc-item"><a href="#21">第 21 篇：找个专家——专业的事问专业的人</a></li>
-<li class="toc-item"><a href="#22">第 22 篇：综合实战——把学的串起来，做一个小项目</a></li>
-<li class="toc-group"><a href="#_2">附录</a></li>
-<li class="toc-item"><a href="#a">附录 A：提问万能句式</a></li>
-<li class="toc-item"><a href="#b">附录 B：翻车急救手册</a></li>
-<li class="toc-item"><a href="#c">附录 C：术语大白话对照</a></li>
-<li class="toc-item"><a href="#_3">写在最后</a></li>
+<li class="toc-group"><a href="#_1">写在前面</a></li>
+<li class="toc-group"><a href="#workbuddy">第一板块：认识 WorkBuddy</a></li>
+<li class="toc-item"><a href="#1-workbuddy-ai">第 1 章：WorkBuddy 是什么——你的 AI 工作伙伴</a></li>
+<li class="toc-item"><a href="#2">第 2 章：第一次对话——从「你好」到「办成事」</a></li>
+<li class="toc-item"><a href="#3-ai">第 3 章：学会提问——让 AI 听懂你的万能公式</a></li>
+<li class="toc-group"><a href="#ai">第二板块：让 AI 帮你做事</a></li>
+<li class="toc-item"><a href="#4-ai-word">第 4 章：让 AI 帮你写文档（Word / 报告 / 文章）</a></li>
+<li class="toc-item"><a href="#5-ai-excel">第 5 章：让 AI 帮你做表格（Excel / 数据整理）</a></li>
+<li class="toc-item"><a href="#6-ai-ppt">第 6 章：让 AI 帮你做演示文稿（PPT）</a></li>
+<li class="toc-item"><a href="#7-ai-pdf">第 7 章：让 AI 帮你处理 PDF</a></li>
+<li class="toc-item"><a href="#8-ai">第 8 章：让 AI 帮你做图和视频</a></li>
+<li class="toc-group"><a href="#ai_1">第三板块：让 AI 帮你搭建</a></li>
+<li class="toc-item"><a href="#9-ai">第 9 章：让 AI 帮你搭一个网站</a></li>
+<li class="toc-item"><a href="#10-ai">第 10 章：让 AI 帮你做一个小工具 / 小应用</a></li>
+<li class="toc-group"><a href="#ai_2">第四板块：让 AI 自动干活</a></li>
+<li class="toc-item"><a href="#11-ai">第 11 章：自动化——让 AI 定时帮你干活</a></li>
+<li class="toc-item"><a href="#12-ai">第 12 章：连接器——让 AI 连上你的其他工具</a></li>
+<li class="toc-item"><a href="#13-ai">第 13 章：技能与专家——给 AI 装上「专业外挂」</a></li>
+<li class="toc-group"><a href="#_98">第五板块：综合实战</a></li>
+<li class="toc-item"><a href="#14-1">第 14 章：综合实战 1——从零搭建个人作品集网站</a></li>
+<li class="toc-item"><a href="#15-2">第 15 章：综合实战 2——每日工作简报自动化</a></li>
+<li class="toc-item"><a href="#16">第 16 章：小白避坑指南——常见问题与解决方案</a></li>
+<li class="toc-group"><a href="#aworkbuddy">附录 A：WorkBuddy 能力速查表</a></li>
+<li class="toc-group"><a href="#b20">附录 B：提问模板大全（20 个场景）</a></li>
+<li class="toc-group"><a href="#c">附录 C：常用连接器一览</a></li>
+<li class="toc-group"><a href="#d">附录 D：推荐技能清单（新手友好）</a></li>
+<li class="toc-group"><a href="#e">附录 E：术语对照表（专业词 → 大白话）</a></li>
     </ul>
   </nav>
   <div class="backdrop" id="backdrop"></div>
@@ -296,593 +284,1113 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 <section class="relate">
   <div class="relate-inner">
     <span class="relate-tag">两册联动</span>
-    <p>这 22 篇够你上手了。想系统搞懂原理、自己搭网站和做自动化？看 <a href="jinjie/" target="_blank" rel="noopener">《WorkBuddy 进阶指南》</a>——五大板块十六章，讲清原理，每段附可抄指令。</p>
+    <p>第一次用 WorkBuddy？建议先读 <a href="../" target="_blank" rel="noopener">《小白 AI 实用场景手册》</a>——22 个 3 分钟上手的具体场景。那本读完，再来这册系统搞懂原理、自己搭网站和自动化。</p>
   </div>
 </section>
 
-<h1 id="workbuddy-ai">WorkBuddy 能干什么：小白 AI 实用场景集</h1>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>这不是一本教程，是一本手册。
-22 篇短文，每篇解决一个你真实会遇到的问题，给一段能直接抄的指令（Prompt）。
-每篇 3 分钟读完，读完就能用。不用按顺序读，翻到哪篇有用，就读哪篇。</p>
-</blockquote>
-<hr />
-<h2 id="_1">写在前面：这本书怎么用</h2>
-<p>先回答三个小白最关心的问题。</p>
-<p><strong>它是什么？</strong> WorkBuddy 是一个装在你电脑上的 AI 助手。你告诉它你想干什么，它帮你干：写东西、算东西、做表格、做 PPT、整理文件、定时提醒你……它不像搜索引擎只给你一堆链接，而是直接给你成品。</p>
-<p><strong>我怎么开始？</strong> 全书每篇的操作都差不多，就三步：</p>
-<ol>
-<li><strong>打开 WorkBuddy</strong>，找到"新任务"的入口，点它；</li>
-<li><strong>挑一个空间</strong>（就是挑一个文件夹，告诉 AI "你的东西放哪、去哪找资料"）。第一次用，随便挑一个就行，后面可以换；</li>
-<li><strong>模型选 auto</strong>（自动），然后<strong>写一段话</strong>告诉它你要干什么，回车。</li>
-</ol>
-<p>就这三步。你写的那段话，就是全书反复出现的 <strong>Prompt</strong>。专业点叫"提示词"，大白话就是——<strong>你跟 AI 说的话</strong>。</p>
-<p><strong>为什么每篇都有两个 Prompt？</strong> 因为不同人喜好不同：</p>
+<h2 id="_1">写在前面</h2>
+<p>如果你已经会用 WorkBuddy 做几件小事——比如让它帮你写段文字、清理下电脑、或者照着某篇手册发出一条提醒——那这本进阶指南就是为你写的。</p>
+<p>入门手册解决的是「一个具体问题，3 分钟上手」；这本解决的是「一套能力，能自己举一反三」。它不会再把你当完全不懂技术的人哄着走，但也不会突然甩出一堆术语。我们的约定是：<strong>讲清楚原理，但永远给你一段能直接抄的指令</strong>。</p>
+<p>这本书分五大板块、十六章，外加五个附录：</p>
 <ul>
-<li><strong>简单版</strong>：一句话，让 AI 自由发挥，省事，但结果可能不完全是你要的；</li>
-<li><strong>复杂版</strong>：分步骤，把要求一条条写清楚，AI 按部就班干，结果更可控。</li>
+<li><strong>认识 WorkBuddy</strong>（第 1–3 章）：从「它到底是什么」到「怎么提要求才听得懂」</li>
+<li><strong>让 AI 帮你做事</strong>（第 4–8 章）：文档、表格、PPT、PDF、图片与视频</li>
+<li><strong>让 AI 帮你搭建</strong>（第 9–10 章）：网站、小工具，零代码</li>
+<li><strong>让 AI 自动干活</strong>（第 11–13 章）：定时任务、连接器、技能与专家</li>
+<li><strong>综合实战</strong>（第 14–16 章）：两个完整项目 + 避坑指南</li>
 </ul>
-<p>新手建议先试简单版，觉得它"听不懂人话"了，再换复杂版。</p>
-<p><strong>一个重要的安全习惯</strong>：涉及删文件、改东西的操作，记住一句话——<strong>先让它列清单、给你看，你确认了再动手</strong>。全书第 2 篇就是这么示范的。AI 很能干，但你永远握有最终确认权。</p>
-<p>好了，开始吧。从最日常的场景看起。</p>
+<p><strong>三条安全铁律，全书通用，先记住：</strong></p>
+<ol>
+<li><strong>删文件前，永远先要清单、你确认、它才动手。</strong> 删除一律进回收站，反悔能找回来。</li>
+<li><strong>授权外部服务（邮箱、网盘等）前，看清它拿到了什么权限，随时能撤。</strong></li>
+<li><strong>不要把密码、身份证号、银行卡、涉密文件直接写进对话或文档里。</strong> 它很能帮，但你的隐私你负责。</li>
+</ol>
 <hr />
-<h2 id="1">① 上手试试</h2><section class="chapter"><h3 id="1_1">第 1 篇：提醒小助手——定时把你的待办推到微信</h3>
-<div class="xref">
-<b>↪ 想升级成全自动？</b>这篇的提醒是手动建的。想让它每天自动把简报发到你邮箱？看进阶指南第 15 章《每日工作简报自动化》（<a href="jinjie/#15-2" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>之前大家都在聊海外 AI 工具，出于对国产的支持，以及，确实有些能力国产 AI 工具是真的实打实的好用，所以，开个不定期更新的小系列"WorkBuddy 能干什么？"。</p>
-<p>今天的第一篇，就来聊一个非常简单的操作：<strong>提醒小助手</strong>。</p>
-<p><strong>用户场景：</strong> 事情一多就忘。你可以在一个固定的文档里记下所有待办，让 WorkBuddy 每天定时提醒你——比如每天上午 11 点，把该做的事推到你绑定的微信里。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点击新任务，选择一个空间（也就是挑一个文件夹，专门放你的提醒文档），模型随意，auto 就行，然后写入 Prompt。</p>
-<p>简单版：</p>
+<h2 id="workbuddy">第一板块：认识 WorkBuddy</h2><section class="chapter"><h3 id="1-workbuddy-ai">第 1 章：WorkBuddy 是什么——你的 AI 工作伙伴</h3>
+<p>你已经在用了，但值得花十分钟想清楚它的本质，后面所有高级玩法都建立在这上面。</p>
+<h4 id="_2">你将学到</h4>
+<ul>
+<li>WorkBuddy 的定位：一个能「对话 + 动手」的 AI 工作台，而不只是聊天机器人</li>
+<li>它的能力边界：哪些事它擅长，哪些事它做不了或不能做</li>
+<li>它的工作模式：对话、读文件、写文件、跑命令、连外部服务</li>
+<li>设备和账号：需要什么、收费逻辑</li>
+</ul>
+<h4 id="_3">核心概念</h4>
+<p>普通聊天机器人只能「说」，WorkBuddy 能「做」。区别在于它运行在一个有文件系统、能执行任务的环境里——它不仅能回答「怎么写周报」，还能直接在你的文件夹里新建一份周报文档；不仅能告诉你「清理存储的步骤」，还能真的去扫描你的硬盘、列出可清理清单。</p>
+<p>把它理解成<strong>一个坐你旁边的全能助理</strong>：你用自然语言下指令，它调用背后的能力（写作、数据分析、代码生成、外部连接）把活干完。它本身不「存储」你的长期记忆，但你可以通过「工作空间里的文档」给它持续上下文。</p>
+<h4 id="_4">能力清单</h4>
+<p>它能帮你做的，大致分六类：</p>
+<ol>
+<li><strong>写</strong>：文章、报告、邮件、脚本、代码</li>
+<li><strong>读与整理</strong>：读 PDF / Word / Excel，提取要点、做总结</li>
+<li><strong>做</strong>：表格、PPT、图片、短视频、网页、小工具</li>
+<li><strong>算</strong>：数据分析、图表、统计</li>
+<li><strong>连</strong>：通过连接器接入邮箱、网盘、日历等</li>
+<li><strong>自动化</strong>：定时执行任务，你不在它也在干活</li>
+</ol>
+<h4 id="_5">它不能 / 不会做的事</h4>
+<ul>
+<li>不能替你做涉及真实风险的「决定」（比如「帮我决定要不要辞职」），它给分析，决定权在你</li>
+<li>不会主动联系你，除非你设了自动化任务</li>
+<li>看不到你的屏幕、读不到你没授权给它的文件</li>
+<li>联网搜索有实时性边界，关键事实建议核实</li>
+</ul>
+<h4 id="_6">直接可用的指令</h4>
 <blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我平时把要办的事记在这个工作空间里的文档里，你帮我看看里面有哪些事，每天上午 11 点提醒我一次。</p>
+<p>用大白话介绍一下 WorkBuddy 能帮我做什么，按「写 / 读 / 做 / 算 / 连 / 自动化」六类各举两个我生活中用得上的例子，每个例子配一句我该对它说的话。</p>
 </blockquote>
-<p>复杂版（更完整，可长期用）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>你是我的重要工作提醒小助手，在指定的工作空间 /你的用户名/workbuddy/自定义文件夹名 中，我会存放一个 MD 文档，叫做"重要提醒"，里面会填写我需要你提醒我的事项，格式为：
-提醒内容：需要你提醒我的内容
-开始时间：什么时候这个内容对应的任务要开始执行
-截止时间：该事项完成的截止时间
-请你每天上午 11 点，把这个文档里的提醒事项，通过日历、提醒、绑定的微信 bot 推送给我。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 你把"重要提醒"文档建好、填上内容，WorkBuddy 就会每天定时干活：到点把还没办的事整理好，通过日历、系统提醒和微信推送给你。提醒的内容可以随时改——不一定是三项，也可以是二十一项；时间也不一定是上午 11 点，想几点提醒就几点。</p>
-<p><strong>小提示：</strong> 记得先在 WorkBuddy 里绑定你的微信（一般在设置里，搜"微信"就能找到），推送才能到你手机上。</p>
-<p>好了，下一篇见。</p>
+<h4 id="_7">试一试</h4>
+<p>打开 WorkBuddy，新建一个任务，把上面那段指令发进去。重点看它举的例子里，有没有一件是你这周就能用上的——记下来，后面章节会教你怎么具体做。</p>
+<h4 id="_8">小结</h4>
+<p>WorkBuddy = 会干活的 AI 助理，不是只会聊天的机器人。记住「它能做六类事、有三个边界」，后面所有章节都是这六类的展开。</p>
 <hr />
-</section><section class="chapter"><h3 id="2-ai">第 2 篇：清理电脑存储——让 AI 帮你腾硬盘</h3>
-<p>今天第二篇，讲一个非常简单的操作：<strong>用 WorkBuddy 来帮忙清理电脑的储存空间</strong>。</p>
-<p><strong>用户场景：</strong> 有些朋友买电脑的时候（比如我，穷，笔记本买了个 512G 的）硬盘空间没选好，或者日常使用 Windows 的时候习惯不好，导致 C 盘空间都红了，此时需要清理，可以让 WorkBuddy 来做。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点击新任务，不用选择单独的空间，模型随意，auto 就行，然后写入 Prompt。这次准备了简单版和复杂版，差异就是，简单版更自由，复杂版就约束多一点。</p>
-<p>简单版：</p>
+</section><section class="chapter"><h3 id="2">第 2 章：第一次对话——从「你好」到「办成事」</h3>
+<p>上一章是「它是什么」，这章是「怎么让它真的动起来」。很多人卡在：会聊天，但不会下指令让它能落地。</p>
+<h4 id="_9">你将学到</h4>
+<ul>
+<li>一次有效对话的标准结构：任务 + 上下文 + 产出要求</li>
+<li>界面里「新任务」「工作空间」「模型」三个关键选择的含义</li>
+<li>不满意时怎么「纠偏」，而不是删了重来</li>
+<li>多轮对话怎么保持上下文</li>
+</ul>
+<h4 id="_10">核心概念</h4>
+<p>WorkBuddy 里，一个「任务」是一个独立的工作单元。你选一个<strong>工作空间</strong>（本质是一个文件夹），它就能读写这个文件夹里的文件；选<strong>模型</strong>（一般选 auto 即可，让它自己挑最合适的），然后开始对话。</p>
+<p>关键认知：<strong>指令越具体，产出越可用。</strong> 模糊的「帮我写个方案」会得到泛泛而谈的废话；「帮我写一份端午节促销方案，目标客户是 25–35 岁年轻宝妈，预算 5000 元，主打健康零食」才会得到能用的东西。</p>
+<h4 id="_11">操作步骤</h4>
+<ol>
+<li>打开 WorkBuddy，点「新任务」</li>
+<li>选一个工作空间（想让它读写文件就选对应文件夹；纯聊天可不单独选）</li>
+<li>模型选 auto</li>
+<li>写出你的需求（套用下一章的万能公式）</li>
+<li>看产出，不满意就直接说「第 2 点改得更口语一点」「缩短到 300 字」</li>
+</ol>
+<h4 id="_12">直接可用的指令</h4>
 <blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我看看我的电脑还有多少存储空间，如果优化、腾出空间的话，可以通过什么方式。</p>
+<p>我是做健康零食电商的，主角是 25–35 岁年轻宝妈。帮我写一条朋友圈推广文案，推端午节礼盒，卖点是不加白砂糖、独立小包装、适合带娃出门。语气亲切像朋友推荐，200 字以内，结尾加一句引导私信咨询。</p>
+<p>上面这条文案不错，但请把卖点再浓缩成 3 个短句，每句不超过 10 个字，放在开头当小标题。</p>
 </blockquote>
-<p>这一版的效果是：WorkBuddy 会开始统计和分析电脑的存储容量都被谁占据了，然后通过对话方式，请你选择适合你的操作。</p>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我检查整个电脑硬盘的存储空间，并进行清理。请按照以下步骤进行：
-第一步，检查电脑硬盘的存储空间，以图表形式展示已用空间、可用空间，已用空间的各类文件或服务对空间的占据情况；
-第二步，给出建议的清理清单，分析哪些文件建议清理，哪些文件建议保留，哪些文件建议做外部备份；
-第三步，给出建议最终清理的文件，与我确认，在我确认授权后，请先将对应整理好的文件，清理到"废纸篓"/"回收站"，体积过于庞大的单个文件无法放入"废纸篓"/"回收站"的，直接删除。</p>
-</blockquote>
-<p>这一版的效果是：WorkBuddy 行动前会先列出行动清单，会直接分析可以清理的文件位置都在哪里，然后分门别类告诉你——哪些它可以安全删除，哪些建议你备份一下，哪些是绝对不可以动的。<strong>注意：它清理前一定会先跟你确认，你点了同意它才动。</strong> 这也是我们前面说的安全习惯：先看清单，再授权。</p>
-<p>好了，下一篇见。</p>
+<h4 id="_13">试一试</h4>
+<p>用上面的指令生成一条文案，然后对它说「语气再活泼一点，加两个 emoji」——观察它如何在上一轮基础上修改，而不是从头重写。这就是多轮对话的威力。</p>
+<h4 id="_14">小结</h4>
+<p>一次对话 = 任务 + 上下文 + 产出要求。不满意别重来，直接纠偏。模型选 auto，工作空间按要不要读写文件来定。</p>
 <hr />
-</section><section class="chapter"><h3 id="3">第 3 篇：帮你查资料——比搜索引擎更会总结</h3>
-<p>第三篇，聊聊查资料这件事。</p>
-<p><strong>用户场景：</strong> 想了解一个东西（比如"什么是元宇宙""这家公司靠谱吗""社保断缴有什么影响"），打开搜索引擎，前几页全是广告和自媒体标题党，翻半天也拼不出个所以然。让 WorkBuddy 帮你查，它会自己去找资料、看完、然后用大白话讲给你听。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，不用特意选空间（查资料用不到你的文件），模型 auto，然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我查一下"什么是元宇宙"，用大白话讲讲，控制在 300 字以内。</p>
-</blockquote>
-<p>复杂版（要求它给出处、分条列、标时间，方便你核实）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做一次资料调研，主题是"什么是元宇宙"。请按照以下步骤进行：
-第一步，搜索相关资料，优先看权威来源（官方机构、主流媒体、行业报告）；
-第二步，用大白话解释它是什么，分成"一句话定义 / 核心特点 / 常见误解 / 现在发展到哪一步"四块来讲；
-第三步，在最后附上信息来源清单，注明每条信息的发布时间；
-第四步，如果不同来源说法矛盾，请指出来。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 简单版适合快速了解个大概；复杂版适合认真研究一件事。查完你可以让它"再展开讲讲某一点"或者"帮我写个 500 字的总结发到朋友圈"，顺着聊就行。<strong>记住：AI 查的资料也可能过时或有错，重要信息（比如政策、法律）一定要按它给的出处去核实一遍。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="4">第 4 篇：帮你翻译——比翻译软件自然得多</h3>
-<p>第四篇，翻译。</p>
-<p><strong>用户场景：</strong> 收到一封全英文的邮件、一份英文说明书、一篇外网文章，看得头疼。翻译软件能翻，但翻出来经常"不说人话"。WorkBuddy 翻译的时候能结合上下文，翻得更像人话，还能按你的要求调整语气。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，模型 auto，把要翻译的内容贴进对话里（或者告诉它文件在哪），然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我把这段话翻译成中文，翻得像人话，别直译。</p>
-</blockquote>
-<p>复杂版（保留格式、给术语对照、指定语气）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我翻译这份英文文档。请按照以下步骤进行：
-第一步，通读全文，理解它在讲什么；
-第二步，翻译成简体中文，保留原文的段落结构和小标题；
-第三步，专业术语单独列一个"术语对照表"，给出中英文和解释；
-第四步，如果有语气上的要求（正式 / 口语 / 礼貌客气），按我指定的语气来。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 简单版适合随手翻一段话；复杂版适合翻整篇文档或合同、说明书。翻完你可以继续问它"这里为什么这么翻""这句话是不是有别的意思"，它都能答。反过来，写英文邮件、英文自我介绍，也可以用同样的办法——把中文给它，让它翻成"地道的英文"。</p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="2">② 帮你写</h2><section class="chapter"><h3 id="5">第 5 篇：帮你写周报 / 月报——把流水账变成像样的汇报</h3>
-<p>第五篇，写周报。上班族每月最烦的事之一。</p>
-<p><strong>用户场景：</strong> 每周五都要交周报，最烦的就是"我这周到底干了啥"。让 WorkBuddy 帮你把零散的工作记录整理成一段像样的周报。如果你平时会把每天干的事随手记在文档里，那效果最好。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，挑一个你放工作记录的文件夹当空间，模型随意（auto 就行），然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我平时会把每天干的事随手记在这个工作空间里，帮我看看这些记录，整理成一份周报，按"本周完成 / 遇到的问题 / 下周计划"三块来写。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我整理一份周报，请按照以下步骤进行：
-第一步，扫描这个工作空间里的所有记录文件；
-第二步，按时间顺序整理本周完成的事项，去重、归类；
-第三步，写成周报格式，包含"本周完成 / 数据亮点 / 遇到的问题 / 下周计划"四个部分；
-第四步，输出成 Word 文档给我。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 简单版更自由，AI 自己发挥；复杂版更可控，每一步都按你的要求来。两个都可以试，看哪个顺手。如果它整理的内容有遗漏，直接说"把 XX 也加进去""这部分帮我写得正式一点"，它会立刻改。<strong>小技巧：就算你平时没记录，也可以把你脑子里的零散想法（哪怕几个词）丢给它，让它帮你扩写成完整的周报。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="6">第 6 篇：帮你写邮件——请假、催款、邀请，一句话搞定</h3>
-<p>第六篇，写邮件。</p>
-<p><strong>用户场景：</strong> 要请假不知道措辞怎么客气；催客户付款怕话说重了得罪人；发邀请函想正式一点又不会写。这些"话到嘴边写不出"的场景，直接让 WorkBuddy 帮你起草。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，模型 auto，然后写入 Prompt。把背景信息说得越清楚，它写得越合你心意。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我写一封请假邮件，明天到后天，请两天假，理由是家里有事。语气礼貌一点，100 字以内。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我写一封给客户的催款邮件。背景信息如下：
-客户：XX 公司，和我们签了合同，尾款 3 万元，按合同已经逾期 15 天了；
-目标：既要提醒对方付款，又不能把关系搞僵；
-要求：语气客气但坚定，先讲事实（合同约定、逾期天数），再给解决方案（请对方在本周内安排付款，如有困难请回复说明），最后留一句希望继续合作的客气话；
-格式：邮件格式，有称呼、正文、落款。写完给我两个版本，一个温和版，一个强硬版。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 写之前告诉它"你是谁、对方是谁、你想达到什么目的、语气要硬还是要软"，它就能写出能直接改改就发的邮件。写完不满意，就说"再硬一点""再短一点""改成对领导说的语气"，改到你满意为止。这条同样适用于微信消息、通知、公告、检讨书……所有"要动嘴皮子"的场合。</p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="7-pdf">第 7 篇：帮你读 PDF——长文章一句话总结</h3>
-<p>第七篇，读 PDF。</p>
-<p><strong>用户场景：</strong> 收到一份 50 页的合同、一份年度报告、一篇英文论文，没时间也没耐心读完，但里面可能有重要信息。让 WorkBuddy 帮你读，把重点提炼给你。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把 PDF 文件拖进去（或者告诉它文件在你哪个文件夹），然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我把这份 PDF 总结一下，讲讲它主要说了什么，有哪些重点。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我读这份 PDF，请按照以下步骤进行：
-第一步，通读全文，先告诉我这份文件是什么（合同 / 报告 / 论文）、整体讲了什么；
-第二步，按章节提炼要点，每个章节用几句话概括；
-第三步，如果是合同或协议，单独列出：甲方乙方是谁、金额多少、期限多久、违约责任是什么、有哪些对我不利的条款，用表格呈现；
-第四步，如果文中有数据，把关键数据列出来；
-第五步，最后给一个"一句话总结"。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 复杂版对合同类文件特别有用——它会把"对你不利的条款"单拎出来，省得你自己逐条抠字眼。看完之后你可以继续追问"第三条到底什么意思""这里能不能再给我举个具体例子"，像读纸质文件一样来回翻。<strong>提醒：重要合同最终一定要找懂行的人确认，AI 只帮你省时间，不替你担责任。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="3_1">③ 帮你算</h2><section class="chapter"><h3 id="8">第 8 篇：帮你做排班表 / 清单——杂事清单化，乱账理清楚</h3>
-<p>第八篇，做表格、列清单。</p>
-<p><strong>用户场景：</strong> 家里或者店里要排班（谁哪天值班）、出游要列行李清单、搬家要列物品清单、给小孩列暑假计划……这些事自己理，又乱又容易漏。让 WorkBuddy 帮你列，还能直接输出成表格文件。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，模型 auto，把需求说清楚，然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我做一个四个人（张三、李四、王五、赵六）的周末值班排班表，周六日两天，每人一天，做成表格。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做一份"搬家物品清单"，请按照以下步骤进行：
-第一步，按房间分类（客厅 / 厨房 / 卧室 / 卫生间 / 书房 / 阳台）列出搬家时要打包的物品，每个房间列 8-15 项；
-第二步，每个物品加一列"是否需要单独包装"（易碎、贵重、液体类标"是"）；
-第三步，加一列"装箱编号"方便搬家时对号入座；
-第四步，最后加一列"备注"，放保价、注意事项等；
-第五步，输出成 Excel 表格文件给我。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 排班表、清单这类活，AI 不怕麻烦、不会漏项。列完你可以接着让它"把周六和周日调换一下""加一列备注"，它都能改。<strong>这类输出尽量让它"做成 Excel"或"做成表格"，比纯文字好用得多</strong>——这也是全书的通用小技巧：需要表格时，明说"用表格给我"。</p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="9-excel">第 9 篇：帮你分析 Excel 数据——一堆数字，让它讲人话</h3>
-<p>第九篇，分析 Excel。</p>
-<p><strong>用户场景：</strong> 手里有一份 Excel（销售记录、收支账、报名名单……），几百行数据，自己看眼晕，又不会用公式和透视表。让 WorkBuddy 直接分析，用大白话告诉你"这些数字说明了什么"。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把 Excel 文件拖进对话（或告诉它文件位置），然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我看一下这个表格，告诉我里面有什么值得注意的地方。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我分析这份 Excel 数据，请按照以下步骤进行：
-第一步，先告诉我这份表一共有多少行、多少列，每一列代表什么；
-第二步，做整体概览：总金额 / 平均值 / 最大值 / 最小值等关键数字；
-第三步，找出规律：比如哪类产品卖得最好、哪个月份最旺、哪个客户贡献最大，用表格列出 TOP 5；
-第四步，找出异常：有没有明显不正常的数据（比如某个数字特别大或特别小）；
-第五步，最后用大白话总结三句话：这份数据说明了什么、有什么值得注意的风险、下一步建议怎么做。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 你不用懂任何公式，把表丢给它，它就能告诉你结论和理由。你也可以反过来问："帮我算一下平均每天卖多少""这个月比上个月涨了百分之几"，它都会算。<strong>注意：涉及算钱的数字，建议让它算完你再抽查核一遍（比如挑一两行自己加一下），养成习惯更安心。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="10">第 10 篇：帮你做图表——数据变成图，汇报更好看</h3>
-<p>第十篇，做图表。</p>
-<p><strong>用户场景：</strong> 汇报要用图表（柱状图、饼图、折线图），但不会做，或者 Excel 里捣鼓半天做出来很丑。让 WorkBuddy 把你的数据变成一张能直接用的图表。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把数据贴给它（或者告诉它 Excel 在哪），然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>把我这份数据做成图表，选个最合适的类型。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做一份图表，用于季度汇报。数据如下：
-[把数据贴在这里]
-请按照以下步骤进行：
-第一步，分析数据适合用什么图（对比用柱状图、占比用饼图、趋势用折线图），解释你的选择；
-第二步，生成图表，配色清晰、中文标注、加上标题和数字标签；
-第三步，在图表下面用一句话写出它想表达的核心结论；
-第四步，把图表导出成图片文件给我，我要直接插到 PPT 里。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 简单版让 AI 自己判断用什么图最合适；复杂版适合正式汇报，图、结论一起给你。拿到图你还可以说"换成深蓝色系""数字标签放上面"，随手改。<strong>小技巧：不会描述数据时，直接说"表在我这个文件夹里，叫 XX.xlsx"，比复制粘贴省事。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="4_1">④ 帮你做</h2><section class="chapter"><h3 id="11-ppt">第 11 篇：帮你做 PPT 汇报——从零到成品，只要几分钟</h3>
-<p>第十一篇，做 PPT。汇报季的救命稻草。</p>
-<p><strong>用户场景：</strong> 下周要汇报，PPT 一个字没写。或者写了文字稿，但不会排版、不会配图、做出来丑得不敢上台。让 WorkBuddy 直接帮你生成一份能用的 PPT。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把主题（或你的文字稿）告诉它，然后写入 Prompt。想让它做得好，关键是先告诉它<strong>给谁讲、讲多久、什么场合</strong>。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我做一个关于"公司 Q3 销售情况"的汇报 PPT，10 页左右，正式一点的风格。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做一份 PPT，用于下周二向公司管理层汇报。请按照以下步骤进行：
-第一步，先给我一份 PPT 大纲（封面、目录、每页的标题和要点），让我确认后再往下做；
-第二步，按确认的大纲生成 PPT，一共 12 页左右，每页文字不要太多，要点式呈现；
-第三步，风格走商务风，配色稳重（深蓝 + 白色系），重要数字单独放大突出；
-第四步，能配图的地方配上合适的图片或图表（图表数据我提供给你）；
-第五步，导出成 .pptx 文件给我，我可以直接在 PowerPoint 里继续改。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 复杂版先出大纲再生成，就是为了避免"它做完一版你全推翻"。生成之后你可以提意见："第三页太满了，删一半""把重点数字改成红色""加一页竞争对手对比"，它都会改。<strong>小技巧：你没有设计能力没关系，PPT 的美观就交给 AI，你只需要负责内容和判断。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="12">第 12 篇：帮你做文章配图——配图不求人，也不怕侵权</h3>
-<p>第十二篇，做配图。</p>
-<p><strong>用户场景：</strong> 发公众号文章、发小红书、做海报，都需要配图。网上搜的图怕侵权，自己又不会设计。让 WorkBuddy 直接按你的描述"画"一张图出来。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，模型 auto，然后把你想画的画面用大白话描述出来。描述越具体，画得越接近你要的。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我画一张图：一只戴着眼镜的橘猫，坐在书桌前用电脑，画风可爱卡通，背景是深夜的书房。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我生成一张配图，用于一篇讲"打工人深夜加班"的公众号文章。要求如下：
-第一步，主题：一个人深夜在办公室对着电脑，窗外是城市夜景；
-第二步，风格：插画风，温暖治愈的色调，不要太压抑；
-第三步，画面里不要出现具体文字、商标、人物正脸（避免侵权和尴尬）；
-第四步，尺寸：适合文章头图的比例，宽一点的横版；
-第五步，先给我 2 个风格方向（一个治愈系、一个简洁商务），我选一个你再细化。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 生成后可以继续微调："把背景换成暖黄色""人物不要了，改成一只猫在敲键盘"，AI 会按你的话重画。<strong>两个使用提醒：一是生成图别直接拿去商用，商用前确认一下平台规则；二是涉及真人照片、证件照这类，别用 AI 乱生成，容易惹麻烦。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="13">第 13 篇：帮你做短视频——文案、脚本、成片，一条龙</h3>
-<p>第十三篇，做短视频。</p>
-<p><strong>用户场景：</strong> 想发抖音 / 小红书 / 视频号，但不会写脚本、不会剪辑、不会配音。让 WorkBuddy 从文案到成片帮你搞定——你要做的只是把想法告诉它。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把你想拍的主题告诉它，然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我做一个 30 秒的短视频，主题是"周末在家做的一顿简单晚餐"，先给我脚本。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我制作一条短视频，用于发在小红书。请按照以下步骤进行：
-第一步，先写脚本：主题是"新手第一次露营要带什么"，时长 45 秒，结构按"开头 3 秒抓眼球（一句提问或悬念）→ 中间分 5 个要点 → 结尾一句总结 + 引导关注"来写；
-第二步，脚本里标注好每一段的画面内容和配音文字，方便我照着拍；
-第三步，根据脚本生成视频（画面 + 配音 + 字幕都帮我配好）；
-第四步，导出成 MP4 文件，方便我直接上传。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 你只需要出想法，文案它写、脚本它排、视频它生成。拿到成片后你可以说"节奏再快一点""字幕字体再大一点"，它继续改。<strong>小提醒：做好的视频上传平台前，记得检查一遍有没有涉及别人的肖像、音乐版权之类的问题。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="5_1">⑤ 帮你造</h2><section class="chapter"><h3 id="14">第 14 篇：帮你搭一个个人网站——不懂代码，也能拥有自己的网页</h3>
-<div class="xref">
-<b>↪ 想做扎实？</b>入门篇只求跑通。想把网站做扎实、做安全（小步快跑、上线前验收、别把密码写进页面）？看进阶指南第 9 章《让 AI 帮你搭一个网站》（<a href="jinjie/#9-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第十四篇，搭网站。很多人觉得"做网站"是程序员的事，其实现在小白也能做。</p>
-<p><strong>用户场景：</strong> 想要一个自己的个人主页（放自我介绍、作品、联系方式），或者给店铺做个展示页。不用懂代码，把内容告诉 WorkBuddy，它帮你把网站"造"出来。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，告诉它你想做一个什么样的网站，然后写入 Prompt。把内容准备得越全，网站越像样。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我做一个简单的个人介绍网页，包含：名字、一句话介绍、我的作品列表、联系邮箱。风格简洁清爽。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我搭一个个人作品集网站，请按照以下步骤进行：
-第一步，先和我确认网站结构：首页（自我介绍）、作品页（放 5 个代表作品）、关于我（经历和联系方式），你确认后再动手；
-第二步，首页要有一句吸引人的开场白，把我的职业、特长、风格写进去，文案帮我润色；
-第三步，整体风格走"简洁高级"路线，浅色背景，排版留白多，手机和电脑上看都要好看；
-第四步，做完后帮我在本地预览给我看，我确认没问题后再发布上线。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 你不写一行代码，AI 全包。做好后它还能帮你发布上线，生成一个网址，发给别人就能访问。想改内容随时说："把第三张图换掉""联系方式改成手机号"。<strong>如果你完全没接触过，先按简单版跑通一次全流程，建立起"原来这么简单"的信心，再上复杂版。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="15">第 15 篇：帮你做一个小工具——重复的事，交给它自动化</h3>
-<div class="xref">
-<b>↪ 想搞懂拆解方法？</b>进阶指南第 10 章用「输入 → 处理 → 输出」三段法，教你把任何工具讲清楚（<a href="jinjie/#10-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第十五篇，做小工具。</p>
-<p><strong>用户场景：</strong> 有些事总在重复做：算 BMI、做记账、整理格式、批量改文件名……每次都要手动搞半天。让 WorkBuddy 帮你做一个专门干这件事的小工具，以后一键搞定。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，把你想自动化的那件事描述清楚，然后写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我做一个记账小工具，能记录每天的收入支出，按月份统计，还能告诉我每个月剩多少钱。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做一个"家庭记账本"小工具，请按照以下步骤进行：
-第一步，先和我确认功能清单：日常记账（收入 / 支出 / 分类）、月度汇总、年度统计、常用类别快捷输入、数据存在本地（不联网上传），你确认后我再开工；
-第二步，界面做成简单好点的样子：一个输入框、一个列表、一个汇总卡片，手机上打开也好用；
-第三步，数据保存在本地，不用注册、不用登录；
-第四步，做完后让我先试用，有不顺手的地方告诉我改。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 你描述需求，AI 实现功能。这类"小工具"可以有很多：报价单生成器、学习打卡表、周计划模板、文件批量重命名……凡是重复性的事，都可以试试让 AI 帮你做成工具。<strong>核心心态：不怕描述得不专业，用大白话讲清楚"我想要什么效果"就行，剩下的交给它。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="6_1">⑥ 帮你盯</h2><section class="chapter"><h3 id="16">第 16 篇：每日工作简报——你不在，它替你汇总</h3>
-<div class="xref">
-<b>↪ 想自己设计定时任务？</b>进阶指南第 11 章讲清「触发时间 + 任务指令 + 工作空间」三要素，你就能设计任意自动化（<a href="jinjie/#11-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第十六篇，定时自动干活。</p>
-<p><strong>用户场景：</strong> 每天上班第一件事，要收集一堆信息（昨天的数据、邮件、项目进度、行业新闻），挨个看一遍一上午就没了。让 WorkBuddy 每天早上定时帮你汇总好，推给你。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，选择放资料的工作空间，然后写入 Prompt。做完这次设置后，它就会按你定的时间自动干活，不用每天重复操作。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>每天早上 9 点，帮我把这个工作空间里的文件看一遍，整理一份"今天要关注的事"清单推给我。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我建立一个"每日工作简报"的定时任务，请按照以下步骤进行：
-第一步，每天早上 8:30 自动运行一次；
-第二步，扫描我指定的工作空间，读取里面的日报、周报、项目文档，提炼出：昨天完成了什么、今天有哪些待办、哪些事项临近截止；
-第三步，再帮我看一下新闻和邮件（如果已连接），挑出和我工作相关的 3 条；
-第四步，整理成简报格式：今日待办（按优先级排序）/ 昨日进展 / 风险提醒 / 相关资讯，推送到我的微信；
-第五步，如果当天没有新内容，简单说一句"今日暂无新事项"即可，不要发空话。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 设置一次，长期生效。你早上醒来，简报已经在微信里等着了。定时任务可以随时改："改成下午 5 点""周末不要发"。<strong>这条和第 1 篇"提醒小助手"是同一类玩法——把"定时 + 推送"用熟了，你能让 AI 替你盯很多事：股价提醒、孩子作业打卡、优惠券到期……</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="17">第 17 篇：帮你整理文件夹——下载目录乱成粥？让它归类</h3>
-<p>第十七篇，整理文件。</p>
-<p><strong>用户场景：</strong> 下载文件夹里攒了几百个文件：安装包、PDF、截图、文档、压缩包……乱七八糟，找个东西翻半天。让 WorkBuddy 帮你分类整理。</p>
-<p><strong>操作方法：</strong> 打开 WorkBuddy，点新任务，告诉它要整理哪个文件夹，然后写入 Prompt。<strong>这一篇请一定用复杂版，养成"先看清单再动手"的习惯。</strong></p>
-<p>简单版（先只让它看，不动手）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我看一下我的下载文件夹里都有什么，按类型统计一下，告诉我哪些文件占了最多空间。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我整理"下载"文件夹，请按照以下步骤进行：
-第一步，先扫描这个文件夹，按类型分类（安装包 / 图片 / 文档 / 表格 / 压缩包 / 视频 / 其他），列出每个类别的文件数量和占用空间，用图表展示；
-第二步，给出整理方案：建议按类型创建子文件夹归类，同时指出哪些文件建议删除（比如重复的安装包、过期的临时文件）、哪些建议保留、哪些建议移到外部备份；
-第三步，把方案列成清单给我看，我不确认，你不许动任何文件；
-第四步，我确认授权后，先把我同意的文件移动到对应文件夹，删除类文件先移到"废纸篓"/"回收站"（不要直接永久删除）；
-第五步，整理完成后，给我一份整理报告：建了哪些文件夹、移动了多少文件、删除了多少、还剩多少空间。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 关键就在第三步——<strong>方案先给你看，你点头它才动手</strong>，而且删除都是先进回收站，反悔了能找回来。这和我们第 2 篇"清理存储"是一个套路：让 AI 干重活，但<strong>最终决定权永远在你手里</strong>。</p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="7">⑦ 帮你连</h2><section class="chapter"><h3 id="18-ai">第 18 篇：连接邮箱——AI 帮你读邮件、盯邮件</h3>
-<div class="xref">
-<b>↪ 想搞清原理和边界？</b>进阶指南第 12 章把连接器讲成「桥」，并提醒授权前看清权限（<a href="jinjie/#12-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第十八篇，连邮箱。</p>
-<p><strong>用户场景：</strong> 一天几十封邮件，广告、通知、正事混在一起，看不过来，又怕漏掉重要邮件。把邮箱"连接"给 WorkBuddy，它就能替你读、替你分类、替你盯着。</p>
-<p><strong>操作方法：</strong> 先在 WorkBuddy 的设置里找到"连接器"（或"账号连接"），找到邮箱，按提示授权绑定（一般就是登录一下、点个同意）。绑定成功后，新建任务，写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我看一下我邮箱里的未读邮件，把重要的挑出来，用大白话告诉我每封说了什么。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我打理邮箱，请按照以下步骤进行：
-第一步，扫描最近的邮件，按"重要 / 一般 / 广告"分类；
-第二步，重要邮件（客户、领导、家人、待办事项相关）逐封总结要点，告诉我每封是谁发的、讲了什么、需不需要我回复；
-第三步，需要回复的，帮我起草回复草稿；
-第四步，广告和通知类邮件，汇总成一行告诉我"有 5 封促销、3 封账单通知"，不用逐封展开；
-第五步，以后每天下午 3 点自动帮我做一次这样的整理，推送到我微信。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 绑定一次，以后就不用一封封点开了。你可以指挥它"把这封转成待办提醒""这封帮我回复：下周三下午可以开会"——它真的会替你把邮件发出去。<strong>两个提醒：一，连接的是你自己的工作邮箱，授权前看清它要哪些权限，只给必要的；二，涉及转账、合同这类邮件，AI 总结完你最好还是亲自看一眼原文。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="19-ai">第 19 篇：连接网盘——AI 帮你管文件</h3>
-<p>第十九篇，连网盘。</p>
-<p><strong>用户场景：</strong> 网盘里存了几年的文件，几十个文件夹层层套娃，想找一份去年的合同，翻半天。把网盘连接给 WorkBuddy，说一声它就帮你找、帮你归类。</p>
-<p><strong>操作方法：</strong> 和邮箱一样，先到设置里的"连接器"找到网盘（百度网盘、腾讯微云等），授权绑定。然后新建任务，写入 Prompt。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我在网盘里找一下去年的租房合同，PDF 格式的。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我整理网盘，请按照以下步骤进行：
-第一步，先扫描我的网盘根目录，告诉我现在大概存了多少文件、占了多大空间、分成了哪些大类；
-第二步，帮我找这几样东西（列出具体关键词），找到了告诉我文件位置：去年的租房合同、孩子的出生证明扫描件、2023 年的旅行照片；
-第三步，给出整理建议：哪些文件夹命名混乱建议改名、哪些文件重复建议合并、哪些可以移到"归档"文件夹，列成清单给我确认；
-第四步，我确认后再执行，执行完给我一份整理报告。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 找文件、统计、归类、改名，都能一句话搞定。以后想找任何东西，直接说"帮我找 XX"，它秒回位置。<strong>这条和邮箱一样：连的是你自己的账号，授权时看清权限；上传下载重要文件时，留意一下网盘和 WorkBuddy 之间传的是什么，敏感文件建议留在本地。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section>
-<h2 id="8_1">⑧ 进阶一点</h2><section class="chapter"><h3 id="20-ai-buff">第 20 篇：装个技能——给 AI 加 buff</h3>
-<div class="xref">
-<b>↪ 该装技能还是请专家？</b>进阶指南第 13 章帮你分清两者（<a href="jinjie/#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第二十篇，装技能。前面学的都是"基础操作"，从这篇开始升级。</p>
-<p><strong>用户场景：</strong> 你发现 AI 什么都会一点，但有些专业的活（做 PPT、做表格、写某种格式的文件）它干得不够"专业"、不够快。这时候可以给它"装技能"——相当于给游戏角色加 buff，让它变成某方面的专家。</p>
-<p><strong>操作方法：</strong> 在 WorkBuddy 里找到"技能"入口（一般在设置或侧边栏），里面有一个技能库/技能市场，可以看到很多现成的技能：文档类的、表格类的、PPT 类的、翻译类的……找到想要的，点安装。然后新建任务时，说一句"用 XX 技能帮我做……"即可。</p>
-<p>简单版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>用表格技能帮我打开这份 Excel，把第三列的数字都加上边框和颜色。</p>
-</blockquote>
-<p>复杂版：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你用"文档排版"技能帮我处理这份会议纪要，请按照以下步骤进行：
-第一步，先把内容按"会议主题 / 参会人 / 讨论要点 / 决议事项 / 待办分工"的结构整理清楚；
-第二步，用规范的文档格式排版（标题层级、表格、字体统一）；
-第三步，待办事项单独列一张表，包含：事项、负责人、截止时间；
-第四步，导出成 Word 文档给我。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 装了技能之后，AI 干这类活会用上专门的能力，又快又专业。技能可以随时装、随时卸，就像手机装 App。<strong>建议：不用一次装一堆，先装你最常用的两三个（比如表格、文档、PPT），用熟了再加。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="21">第 21 篇：找个专家——专业的事问专业的人</h3>
-<div class="xref">
-<b>↪ 专家背后是什么机制？</b>进阶指南第 13 章《技能与专家》讲清「能力增强 vs 角色切换」（<a href="jinjie/#13-ai" target="_blank" rel="noopener">点此跳转</a>）。
-</div>
-
-<p>第二十一篇，找专家。</p>
-<p><strong>用户场景：</strong> 有些问题你不敢随便问 AI——比如合同条款怎么审、投资理财怎么配、孩子升学怎么规划。通用 AI 的回答怕不靠谱。这时候可以找一个"专家"来问：WorkBuddy 里有一批专业角色（法律、财务、医疗、教育等领域的专家），相当于请了个专业人士坐镇。</p>
-<p><strong>操作方法：</strong> 在 WorkBuddy 左侧找到"专家"入口，按分类浏览（法律、财经、职场、生活……），点开一个专家，直接开始对话。它会用这个领域的专业方法帮你分析。</p>
-<p>简单版（举例）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我签了一份兼职合同，里面有一条"离职后两年内不得从事同行业"，这条合理吗？对我有什么影响？</p>
-</blockquote>
-<p>复杂版（举例）：</p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你做我的劳动法律顾问，帮我看一份劳动合同。请按照以下步骤进行：
-第一步，通读合同条款，指出哪些是常见条款、哪些对我明显不利；
-第二步，重点分析：试用期设置是否合规、加班工资怎么约定、违约金条款是否过高、竞业限制条款是否合理；
-第三步，把有风险的地方逐条列出来，用大白话解释风险是什么；
-第四步，给出建议：哪些条款可以谈判、谈判时怎么开口；
-第五步，最后提醒我：哪些情况必须咨询本地律师（涉及金额大或无法判断时）。</p>
-</blockquote>
-<p><strong>效果说明：</strong> 专家的回答会更有章法、更谨慎，该提醒你"这个必须找真人律师"的时候它会直说。<strong>重要：专家再专业，也只是辅助。涉及重大利益（大额合同、治疗方案、大额投资），最终一定要找有资质的真人确认。</strong></p>
-<p>好了，下一篇见。</p>
-<hr />
-</section><section class="chapter"><h3 id="22">第 22 篇：综合实战——把学的串起来，做一个小项目</h3>
-<p>最后一篇，不教新东西，把前面学的串起来用一次。</p>
-<p><strong>用户场景：</strong> 你学了一堆"能干什么"，现在该自己动手跑通一个完整的小项目了。我们做一个最实用、最适合练手的组合：<strong>"每周复盘自动化"</strong>——它用到了提醒（第 1 篇）、写周报（第 5 篇）、定时任务（第 16 篇）、技能和专家（第 20-21 篇）。</p>
-<p><strong>操作方法：</strong> 跟着下面这个完整流程走一遍，你就理解了 WorkBuddy 干活的完整套路。</p>
-<p><strong>第一步，准备一个空间。</strong> 建一个文件夹，专门放你的工作记录和复盘文档（比如叫"我的工作台"）。以后所有和这件事有关的文件都放这里。</p>
-<p><strong>第二步，养成随手记录的习惯。</strong> 建一个 MD 文档叫"工作流水账"，每天下班前花一分钟，把当天干了啥记两行。不用写得多好，关键词就行。</p>
-<p><strong>第三步，写一个"每周复盘"Prompt，让它按你的格式干活。</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>我需要你帮我做每周复盘，请按照以下步骤进行：
-第一步，扫描"我的工作台"空间里这周的工作流水账；
-第二步，整理成复盘报告：本周完成 / 本周亮点 / 遇到的问题 / 下周计划，每部分 3-5 条，用表格呈现；
-第三步，下周计划部分，帮我标出优先级（高 / 中 / 低）；
-第四步，把复盘报告保存到这个空间里，命名带日期，比如"复盘-8月第4周"；
-第五步，做完后在对话里告诉我"已生成，有什么要调整的告诉我"。</p>
-</blockquote>
-<p><strong>第四步，设成定时任务。</strong> 告诉 WorkBuddy："以后每周五下午 5 点自动做一次这个复盘"，它就记住了。周五你啥都不用干，下班前复盘已经躺在文件夹里。</p>
-<p><strong>第五步，让它帮你"盯"着。</strong> 再结合第 1 篇的提醒：让 WorkBuddy 每天早上提醒你"今天别忘了记流水账"（用微信推给你）。记性不好？AI 帮你记着。</p>
-<p><strong>效果说明：</strong> 这一套流程跑下来，你等于拥有了一套"自动运转"的个人管理系统：你只管每天花一分钟记两行字，AI 负责整理、归档、提醒。做完这个项目，你基本就摸清了 WorkBuddy 的核心思路——<strong>把一件事讲清楚（Prompt）→ 让它自己干（执行）→ 让它按点干（定时）→ 让它把结果送到你手上（推送）</strong>。以后任何想自动化的事，都可以套这个套路。</p>
-<p>好了，全书就到这里。下面翻附录——遇到问题的时候，记得回来查。</p>
-<hr />
-</section>
-<h2 id="_2">附录</h2><section class="chapter"><h3 id="a">附录 A：提问万能句式</h3>
-<p>不想翻正文？记住这几句话式，套上就能用。</p>
-<p><strong>句式 1：直接派活</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>帮我（做 / 写 / 整理 / 分析 / 总结 / 翻译）+ 具体的事情 + （用XX格式给我）。</p>
-</blockquote>
-<p>例：帮我写一份 200 字的会议通知，用 Word 格式给我。</p>
-<p><strong>句式 2：给角色</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>你是（一个XX）——（帮我做XX），要求（XX）。</p>
-</blockquote>
-<p>例：你是一个有 10 年经验的招聘 HR——帮我把这段自我介绍改得更有吸引力，控制在 150 字。</p>
-<p><strong>句式 3：分步骤（最稳）</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>请按照以下步骤进行：第一步，……；第二步，……；第三步，……</p>
-</blockquote>
-<p>例：第一步先给我方案，我确认后你再做第二步。这条尤其适合"怕 AI 自由发挥跑偏"的时候。</p>
-<p><strong>句式 4：定格式</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>用（表格 / 清单 / 图表 / Word / Excel / PPT / 大白话 / 分条列点）的形式给我。</p>
-</blockquote>
-<p>AI 最听话的就是格式指令，说清楚了它就不会给你一大段糊在一起的文字。</p>
-<p><strong>句式 5：给限制</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>控制在 XX 字以内 / 不要超过 XX 条 / 不要用专业术语 / 忽略 XX。</p>
-</blockquote>
-<p>例：控制在 300 字以内，不要用专业术语，给领导看的。</p>
-<p><strong>句式 6：要解释</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>做完后告诉我：结论是什么、为什么、有什么风险或建议。</p>
-</blockquote>
-<p><strong>万能组合拳（记这一个就够）：</strong></p>
-<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
-<p>你是（角色），帮我（任务）。要求：（格式）+（限制）。请按步骤：第一步……，我确认后再继续。</p>
-</blockquote>
-</section><section class="chapter"><h3 id="b">附录 B：翻车急救手册</h3>
-<p>效果不对？别慌，先对号入座。</p>
+</section><section class="chapter"><h3 id="3-ai">第 3 章：学会提问——让 AI 听懂你的万能公式</h3>
+<p>这是全书最重要的一章。前面所有能力，最终都取决于「你会不会提要求」。这一章给一个能反复套用的公式。</p>
+<h4 id="_15">你将学到</h4>
+<ul>
+<li>好问题 vs 差问题的差距（同一个需求，两种问法的产出对比）</li>
+<li>万能公式：<strong>身份 + 任务 + 要求 + 补充信息</strong></li>
+<li>怎么让产出「改到满意」：给具体修改指令</li>
+<li>常见翻车场景与补救</li>
+</ul>
+<h4 id="_16">核心概念</h4>
+<p>AI 没有读心术。它根据你给的「身份、任务、要求、补充信息」四个维度来组织回答。缺一个维度，产出就偏一层：</p>
+<ul>
+<li>没<strong>身份</strong>：它不知道用谁的口吻（员工？老板？博主？）</li>
+<li>没<strong>任务</strong>：它不知道你要什么（写？总结？分析？）</li>
+<li>没<strong>要求</strong>：它不知道格式、长度、风格</li>
+<li>没<strong>补充信息</strong>：它只能编，容易假大空</li>
+</ul>
+<h4 id="_17">万能公式拆解</h4>
 <table>
 <thead>
 <tr>
-<th>症状</th>
-<th>急救方法</th>
+<th>维度</th>
+<th>作用</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>它说"我做不到"</td>
-<td>换个说法重试；或者把任务拆小，先让它做第一步</td>
+<td>身份</td>
+<td>用谁的视角/口吻</td>
+<td>「我是社区便利店老板」</td>
 </tr>
 <tr>
-<td>结果太啰嗦</td>
-<td>说"控制在 XX 字以内，分条列点"</td>
+<td>任务</td>
+<td>要它做什么</td>
+<td>「帮我写一份会员日活动策划」</td>
 </tr>
 <tr>
-<td>结果太简略</td>
-<td>说"展开讲讲""每个点再详细一点，给个例子"</td>
+<td>要求</td>
+<td>格式/长度/风格/禁忌</td>
+<td>「Word 可复制、800 字、口语化、别用网络梗」</td>
 </tr>
 <tr>
-<td>格式不对</td>
-<td>明说"用表格 / 做成 Word / 列成清单"</td>
-</tr>
-<tr>
-<td>方向完全跑偏</td>
-<td>补充背景："我是给 XX 看的""我的身份是 XX"，再给它举个你想要的例子</td>
-</tr>
-<tr>
-<td>理解错了意思</td>
-<td>别急，说"不是这个意思"，然后重新解释一遍 + 给个例子</td>
-</tr>
-<tr>
-<td>内容太官方太像 AI</td>
-<td>说"写得口语一点，像人说话，不要套话"</td>
-</tr>
-<tr>
-<td>卡住没反应</td>
-<td>等它一会；不行就重新开个任务，简化问题再试</td>
-</tr>
-<tr>
-<td>担心隐私</td>
-<td>敏感信息不要写进对话；重要文件放本地空间；授权连接器时看清权限</td>
-</tr>
-<tr>
-<td>它想删你的文件</td>
-<td>记住全书铁律：<strong>先要清单，你确认，它才能动</strong>。它要动文件而你心里没底，直接说"先别动，只给我清单"</td>
+<td>补充信息</td>
+<td>背景/约束/素材</td>
+<td>「预算 2000 元、周日上午、周边都是老小区」</td>
 </tr>
 </tbody>
 </table>
-</section><section class="chapter"><h3 id="c">附录 C：术语大白话对照</h3>
-<p>看到不懂的词，翻这里。</p>
+<h4 id="_18">直接可用的指令（套公式）</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>身份：我是刚带团队的新晋主管。任务：帮我写一封给团队的周一晨会通知。要求：微信能直接发、150 字内、语气坚定但温和。补充信息：本周要启动一个新项目，周会同步目标并收集每个人的顾虑。</p>
+</blockquote>
+<h4 id="_19">翻车补救速查</h4>
+<ul>
+<li>产出太泛 → 补「身份 + 补充信息」，让它落地</li>
+<li>太长 → 「缩短到 XX 字，保留核心三点」</li>
+<li>风格不对 → 「语气再 XX 一点」「模仿 XX 的写法」</li>
+<li>跑题 → 「只回答 XX，其他不用提」</li>
+</ul>
+<h4 id="_20">试一试</h4>
+<p>挑一件你这周真要写的东西（邮件、文案、总结都行），严格按四维度写一段指令发过去。对比你平时随口说的写法，感受差距。</p>
+<h4 id="_21">小结</h4>
+<p>记住四字词：<strong>身份、任务、要求、补充信息</strong>。本书附录 B 有 20 个套用模板，写不动时直接抄。</p>
+<hr />
+</section>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>目标：读完这三章，你理解 WorkBuddy 是什么、能做什么、边界在哪，并且能写出一份「AI 听得懂」的需求。</p>
+</blockquote>
+<hr />
+<h2 id="ai">第二板块：让 AI 帮你做事</h2><section class="chapter"><h3 id="4-ai-word">第 4 章：让 AI 帮你写文档（Word / 报告 / 文章）</h3>
+<p>写作是 AI 最强、也最容易被用滥的能力。这章讲「怎么写出能直接用的文档」，而不只是「一段话」。</p>
+<h4 id="_22">你将学到</h4>
+<ul>
+<li>一句话生成完整文章，并指定结构</li>
+<li>让 AI 仿你的风格（上传你写过的东西当参考）</li>
+<li>生成后怎么改：对话里改 vs 导出 Word 改</li>
+<li>导出为 .docx 的方法</li>
+</ul>
+<h4 id="_23">核心概念</h4>
+<p>AI 写初稿极强，但「你的声音」它不会天然有。两个技巧拉开差距：</p>
+<ol>
+<li><strong>给结构</strong>：明确「分三段 / 加小标题 / 开头抛问题结尾给行动」，它就不会写成流水账。</li>
+<li><strong>给样本</strong>：上传一篇你写过的文章，说「仿这个风格写」，产出立刻像你本人。</li>
+</ol>
+<p>改稿策略：小改动在对话里说（「第三段加个数据」）；大结构调整建议先导出 Word，在熟悉的编辑器里改，再丢回给它润色。</p>
+<h4 id="_24">操作步骤</h4>
+<ol>
+<li>用第 3 章公式写需求，明确主题、结构、字数、风格</li>
+<li>要仿风格就先上传参考文，再下指令</li>
+<li>看初稿，对话里迭代到 80 分</li>
+<li>说「导出为 Word 文档」拿 .docx</li>
+<li>在 Word 里做最后润色</li>
+</ol>
+<h4 id="_25">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我写一篇 600 字的产品介绍，产品是「便携式挂烫机」。结构：开头一个生活痛点场景、中间三个卖点（小巧/不漏水/30 秒出蒸汽）、结尾一句购买引导。风格：像电商详情页，专业但不生硬。</p>
+<p>上传参考：这是我之前写的一篇推广文（附文件）。请仿照它的语气和节奏，把上面那篇挂烫机介绍重写一遍，保持同样结构。</p>
+</blockquote>
+<h4 id="_26">试一试</h4>
+<p>写一份你本月的工作总结（完成事项 / 问题 / 下月计划），导出 Word，再丢回给它说「把语气改得更像汇报给老板，加粗关键数字」。</p>
+<h4 id="_27">小结</h4>
+<p>给结构 + 给样本 = 能用的初稿。小改对话里做，大改导出 Word。附录 B 有写作类模板。</p>
+<hr />
+</section><section class="chapter"><h3 id="5-ai-excel">第 5 章：让 AI 帮你做表格（Excel / 数据整理）</h3>
+<p>表格是办公最高频、也最容易被 Excel 劝退的场景。AI 能「说人话做表」——你描述要什么，它生成；你丢已有表，它分析。</p>
+<h4 id="_28">你将学到</h4>
+<ul>
+<li>从零生成一张结构化表格</li>
+<li>上传 Excel 让 AI 分析（汇总、找规律、做图）</li>
+<li>数据清洗（去重、补缺、统一格式）</li>
+<li>导出新的 Excel</li>
+</ul>
+<h4 id="_29">核心概念</h4>
+<p>两种用法：
+- <strong>生成型</strong>：「帮我做一张 5 人一周排班表」→ 它产表，你导出。
+- <strong>分析型</strong>：上传你的销售表 → 「按月汇总销售额，标出下滑最大的品类」→ 它读数据、出结论、还能画图。</p>
+<p>清洗是隐藏大招：你有一堆乱数据（格式不一、有空值、有重复），说「去重、按日期排序、空白填 0、统一金额格式」，它一键规范。</p>
+<h4 id="_30">操作步骤</h4>
+<ol>
+<li>生成：描述表头 + 行数 + 规则</li>
+<li>分析：上传表 + 明确「看什么指标、怎么呈现」</li>
+<li>清洗：上传表 + 列清理规则</li>
+<li>要图就说「做一张柱状图，X 是月份 Y 是销售额」</li>
+<li>说「导出 Excel」拿文件</li>
+</ol>
+<h4 id="_31">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我生成一张「读书清单」表，列：书名、作者、类别、优先级（高/中/低）、状态（想读/在读/读完）。至少 12 本，类别覆盖小说/历史/商业，优先级按比例混合。</p>
+<p>上传 sales.xlsx。请：1）按月汇总总销售额；2）找出环比下滑最大的品类；3）做一张折线图，X 轴月份 Y 轴销售额；4）导出带图的新 Excel。</p>
+</blockquote>
+<h4 id="_32">试一试</h4>
+<p>找一份你手头真实的表格（哪怕购物清单），上传让它「统一格式并去重」，再要一张图。感受「说人话做表」的爽感。</p>
+<h4 id="_33">小结</h4>
+<p>生成型描述结构，分析型描述指标，清洗型列规则。图一句话出。导出 Excel 闭环。</p>
+<hr />
+</section><section class="chapter"><h3 id="6-ai-ppt">第 6 章：让 AI 帮你做演示文稿（PPT）</h3>
+<p>汇报、分享、路演都要 PPT。AI 能一句话出框架，你再调内容和风格。</p>
+<h4 id="_34">你将学到</h4>
+<ul>
+<li>一句话生成完整 PPT，指定页数/风格/每页内容</li>
+<li>生成后微调：改某页、换风格、增删页</li>
+<li>导出 .pptx</li>
+<li>参考已有 PPT 风格生成新稿</li>
+</ul>
+<h4 id="_35">核心概念</h4>
+<p>PPT 的难点从来不是「写」，是「排版 + 对齐 + 配色」这种机械活。AI 把这些包了。你负责<strong>定内容骨架和风格方向</strong>，它负责落地成可编辑的 .pptx。</p>
+<p>关键：<strong>先给它内容大纲，再要 PPT</strong>，比「随便做一份」质量高得多。比如先写「8 页周报：1 封面 2 本周进展 3 数据看板 4 亮点 5 问题 6 下周计划 7 需协调 8 谢谢」，它照骨架填，不乱来。</p>
+<h4 id="_36">操作步骤</h4>
+<ol>
+<li>先写内容大纲（几页、每页讲啥）</li>
+<li>下指令：主题 + 页数 + 风格 + 大纲</li>
+<li>看稿，对话里改（「第 3 页数据换成柱状图」「整体配色改蓝」）</li>
+<li>导出 .pptx 在 PowerPoint/WPS 里精修</li>
+</ol>
+<h4 id="_37">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我做一份 8 页的团队周会汇报 PPT。风格：简洁商务、主色蓝。每页：1 封面（标题+日期）2 本周进展 3 数据看板 4 工作亮点 5 遇到的问题 6 下周计划 7 需要协调的资源 8 结尾。每页用要点不要长句。</p>
+</blockquote>
+<h4 id="_38">试一试</h4>
+<p>做一份「我的年度读书报告」5 页 PPT：封面、读了什么、最喜欢的三本、一点感悟、明年计划。导出后打开看排版。</p>
+<h4 id="_39">小结</h4>
+<p>先给大纲再要 PPT，质量翻倍。机械排版交给它，内容你把关。导出 .pptx 精修。</p>
+<hr />
+</section><section class="chapter"><h3 id="7-ai-pdf">第 7 章：让 AI 帮你处理 PDF</h3>
+<p>PDF 是信息黑洞——长篇报告、合同、论文，人读又慢又易漏。AI 能「读进去、抽出要点」。</p>
+<h4 id="_40">你将学到</h4>
+<ul>
+<li>上传 PDF 提取要点、总结、翻译</li>
+<li>从 PDF 抽表格数据</li>
+<li>合并 / 拆分 PDF</li>
+<li>加密解密、转 Word / Excel</li>
+</ul>
+<h4 id="_41">核心概念</h4>
+<p>PDF 的两类处理：
+- <strong>读懂型</strong>：长报告 → 「用 200 字总结核心观点」「找出所有涉及金额的条款」
+- <strong>加工型</strong>：多份合同合并、一份拆成单章、PDF 转可编辑 Word</p>
+<p>抽表格是报表党的福音：扫描版 PDF 里的表格，它也能识别成结构化数据再导出 Excel。</p>
+<h4 id="_42">操作步骤</h4>
+<ol>
+<li>上传 PDF</li>
+<li>读懂型：说总结/翻译/找条款</li>
+<li>加工型：说合并/拆分/转换格式</li>
+<li>要数据就说「把第 3 页表格抽成 Excel」</li>
+</ol>
+<h4 id="_43">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>上传 industry_report.pdf（30 页）。请用 200 字总结核心观点，再列 5 个最值得注意的数据，每个数据注明出自第几页。</p>
+<p>上传 contract.pdf。请找出关键条款：合同金额、履约期限、违约责任、保密义务，用清单列出并标注原文页码。</p>
+</blockquote>
+<h4 id="_44">试一试</h4>
+<p>找一份你手头的 PDF（合同、说明书、报告都行），上传要「一页纸总结」。对比你自己读要多久。</p>
+<h4 id="_45">小结</h4>
+<p>长文档交给它读懂+抽取，你只看结论。表格、合并、转换都能做。附录 C 有 PDF 类连接器可批量处理。</p>
+<hr />
+</section><section class="chapter"><h3 id="8-ai">第 8 章：让 AI 帮你做图和视频</h3>
+<p>文字之外，视觉内容（配图、社媒素材、产品演示）AI 也能从「一句话」生成。这章讲清边界和用法。</p>
+<h4 id="_46">你将学到</h4>
+<ul>
+<li>文字生成图片，控制风格</li>
+<li>图生图（上传照片换风格）</li>
+<li>文字生成短视频</li>
+<li>实际用途：配文插图、社媒素材、演示</li>
+</ul>
+<h4 id="_47">核心概念</h4>
+<p>生图靠「描述词」。描述越具体，图越准：主体 + 场景 + 风格 + 色调 + 构图。比如「一个人深夜对电脑写作，暖光台灯，电影感，竖构图」比「画张写作的图」好十倍。</p>
+<p>视频目前适合「短、氛围、演示」类（几秒到十几秒），不适合复杂叙事。把它当素材，不当前成品。</p>
+<h4 id="_48">操作步骤</h4>
+<ol>
+<li>写描述词：主体+场景+风格+色调+构图</li>
+<li>出图，不满意调词重来</li>
+<li>图生图：上传参考图 + 「换成水彩风格」</li>
+<li>视频：描述动作/氛围 + 时长</li>
+</ol>
+<h4 id="_49">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>画一张公众号封面图：主题「普通人也能用 AI 提效」，画面一个人轻松坐在沙发用手机，旁边漂浮着文档/图表/日历的图标，扁平插画风，明亮配色，横构图 16:9。</p>
+<p>生成一段 5 秒视频：雨中城市的街景，霓虹倒影，慢镜头，赛博朋克色调。</p>
+</blockquote>
+<h4 id="_50">试一试</h4>
+<p>给你最近一篇朋友圈或公众号配一张图：写描述词生成 3 张不同风格，挑一张用。</p>
+<h4 id="_51">小结</h4>
+<p>生图 = 描述词具体化（主体/场景/风格/色调/构图）。视频做短素材。附录 D 有图像类技能可增强。</p>
+</section>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>目标：读完这五章，你能独立用 WorkBuddy 生成各类工作文档和创意内容，并知道什么时候该上传文件、什么时候该导出。</p>
+</blockquote>
+<hr />
+<h2 id="ai_1">第三板块：让 AI 帮你搭建</h2><section class="chapter"><h3 id="9-ai">第 9 章：让 AI 帮你搭一个网站</h3>
+<p>这是很多人觉得「不可能自己干」的事，其实门槛已经降到「会说人话」。你负责需求，AI 负责代码。读完这章，你不该只会「让 AI 生成一个页面」，而要能独立把一个小网站从想法做到上线、还能自己验收和维护。</p>
+<h4 id="_52">你将学到</h4>
+<ul>
+<li>「用 AI 搭网站」到底怎么回事：你描述，它写 HTML/CSS/JS，你不用写一行</li>
+<li>怎么提一个「不跑偏」的建站需求：页面清单 + 每页内容 + 风格，一次说清</li>
+<li>怎么看预览、怎么有章法地改设计（而不是乱说一通）</li>
+<li>上线前怎么验收：一份清单，逐项点过再发布</li>
+<li>部署上线有几种选法：一键托管 vs 自有 GitHub Pages，区别在哪</li>
+<li>网站安全常识：哪些信息绝对不能写进页面、访客数据怎么合规</li>
+<li>上线后怎么维护：改文案、换图、加页面，都是一句话的事</li>
+</ul>
+<h4 id="_53">核心概念</h4>
+<p>网站本质就是一堆文件：HTML 管结构（哪里是标题、哪里是按钮）、CSS 管样式（颜色、间距、字体）、JS 管交互（点一下展开、表单提交）。AI 能一次生成整套文件，包在一个可预览的页面里。你的角色是<strong>产品经理 + 验收</strong>：说清楚要什么、看它做出来、不对就改、满意了再发布。</p>
+<p>关键心智：<strong>小步快跑</strong>。别说「帮我做个淘宝」，说「先做个单页，顶部导航、中间一句标语、下面三个功能卡片」。跑通了再迭代。一次性要太复杂，它确实能写，但出来的东西你自己都难验收——需求一偏，它写一大堆你不满意，来回改更累。</p>
+<p>一句话记住：<strong>你不是在「写网站」，你是在「描述一个网站给听得懂人话的同事」，他负责把活干出来，你负责看对不对。</strong></p>
+<p>补充一个判断标准：如果你能用「先要 X，跑通再加 Y」拆成两步，就别一步到位。网站类需求几乎都能这么拆。</p>
+<h4 id="_54">操作步骤</h4>
+<ol>
+<li><strong>写需求卡片</strong>：类型（作品集/落地页/博客）+ 页面清单（首页/关于/作品/联系）+ 每页内容要点 + 风格（主色、气质）。写不清就先只写「单页 + 一句标语」。</li>
+<li><strong>生成框架</strong>：把需求卡片贴给 WorkBuddy，让它先出框架（不是成品），你先看结构对不对。</li>
+<li><strong>预览验收</strong>：它会给一个预览链接，打开看——结构、文案占位、布局。这步只校验「框架对不对」，别急着抠细节。</li>
+<li><strong>迭代改设计</strong>：用短指令逐条调——「标题再大」「主色换靛蓝」「卡片间距加大」「手机上导航太挤」。一次一条，改完看效果再下一条。</li>
+<li><strong>上线前验收</strong>：按后面的「验收清单」逐项点过（见本章常见坑之后）。</li>
+<li><strong>部署上线</strong>：说「部署上线」，拿到可分享链接；或导出文件自己用 GitHub Pages 托管（见「部署上线选择」）。</li>
+<li><strong>维护</strong>：以后改文案、换图、加页面，都是一句话，不用重做。</li>
+</ol>
+<figure class="figure">
+<svg viewBox="0 0 680 130" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC',sans-serif">
+<rect x="8" y="44" width="116" height="48" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="66" y="66" text-anchor="middle" font-size="13" fill="#1f2937">需求描述</text>
+<text x="66" y="83" text-anchor="middle" font-size="10" fill="#64748b">说什么页面</text>
+<line x1="124" y1="68" x2="146" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M140 62 L149 68 L140 74" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="149" y="44" width="116" height="48" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="207" y="66" text-anchor="middle" font-size="13" fill="#1f2937">AI 写代码</text>
+<text x="207" y="83" text-anchor="middle" font-size="10" fill="#64748b">HTML/CSS/JS</text>
+<line x1="265" y1="68" x2="287" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M281 62 L290 68 L281 74" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="290" y="44" width="116" height="48" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="348" y="66" text-anchor="middle" font-size="13" fill="#1f2937">预览验收</text>
+<text x="348" y="83" text-anchor="middle" font-size="10" fill="#64748b">看效果</text>
+<line x1="406" y1="68" x2="428" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M422 62 L431 68 L422 74" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="431" y="44" width="116" height="48" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="489" y="66" text-anchor="middle" font-size="13" fill="#1f2937">改设计</text>
+<text x="489" y="83" text-anchor="middle" font-size="10" fill="#64748b">逐条调</text>
+<line x1="547" y1="68" x2="569" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M563 62 L572 68 L563 74" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="570" y="44" width="102" height="48" rx="9" fill="#2563eb" stroke="#2563eb" stroke-width="1.2"/>
+<text x="621" y="66" text-anchor="middle" font-size="13" fill="#ffffff">部署上线</text>
+<text x="621" y="83" text-anchor="middle" font-size="10" fill="#dbeafe">别人能开</text>
+</svg>
+<figcaption>图：用 AI 搭网站的典型流程——你描述需求，它写代码，你预览验收，循环改到满意，最后部署上线。</figcaption>
+</figure>
+
+<h4 id="_55">常见坑</h4>
+<ul>
+<li><strong>一次要太多</strong>：第一版就说「我要个电商站，带支付、带会员、带后台」→ 它确实能写，但出来的东西你很难验收，改都不知从哪改。先要「一个能看的单页」，跑通再长。</li>
+<li><strong>不验收直接上线</strong>：生成了就点部署，结果首页是占位文字、链接是坏的、手机上错位。上线前一定自己点一遍每个按钮、每一条链接。</li>
+<li><strong>把密码写进页面</strong>：比如把后台账号密码硬编码在网页里，谁打开源码（F12）都能看到。<strong>任何秘密都不要进页面</strong>，需要登录就走正经的后端服务。</li>
+<li><strong>没测移动端</strong>：电脑上好看，手机上一团糟。预览时一定用手机宽度（或浏览器开发者工具）看一遍。</li>
+<li><strong>图片太大</strong>：塞了几张原图，页面加载 10 秒。让 AI 出图时就说「体积小的 web 图」，或上线前压一遍。</li>
+<li><strong>锚点跳转失效</strong>：加了「回到顶部」「目录锚点」但点了不动——通常是 id 写错或中文锚点没转义，让 AI 自查一下。</li>
+</ul>
+<h4 id="_56">部署上线选择</h4>
+<p>做好的网站怎么让别人打开，两条主流路：</p>
+<ul>
+<li><strong>一键托管（如 CloudStudio / WorkBuddy 部署）</strong>：最省事，说「部署」就拿链接，适合快速分享、临时公开。缺点：链接带平台域名，长期品牌感弱。</li>
+<li><strong>自有 GitHub Pages</strong>：把生成的文件推到 GitHub 仓库，开启 Pages，拿到 <code>你的用户名.github.io/仓库名</code> 的链接，可绑定自己的域名。缺点：要会推代码（或让我帮你推）。适合长期、想有自己地址的站点。</li>
+</ul>
+<p>简单选：先发群里用 → 一键托管；想当长期作品集/官网 → GitHub Pages。本书进阶版与入门册本身就用这套 GitHub Pages 方案互链，你看到的就是成品。</p>
+<h4 id="_57">网站安全深入</h4>
+<ul>
+<li><strong>HTTPS</strong>：正式站点务必走 HTTPS（GitHub Pages、CloudStudio 默认都是），别让用户在不加密页面填信息。</li>
+<li><strong>密钥不进前端</strong>：API Key、后台密码、数据库地址，永远不要写进 HTML/JS（前端代码人人可见）。需要这些，就得有后端，或只用「不需要密钥」的服务。</li>
+<li><strong>表单提交</strong>：别自己写后端收邮件，用现成表单服务（如腾讯问卷、Formspree 类），或让 AI 接你已连的邮箱连接器。</li>
+<li><strong>访客数据合规</strong>：收集任何用户信息前想清楚「为什么收、存哪、留多久」。小项目能不收就不收。</li>
+</ul>
+<h4 id="_58">上线前验收清单（逐项点过再发布）</h4>
+<ol>
+<li>每个导航链接能跳、能回</li>
+<li>每个按钮点了有反应（或确实是死链已处理）</li>
+<li>手机宽度下布局不乱、字不小</li>
+<li>图片都加载、不模糊、不大到卡</li>
+<li>联系方式（邮箱/微信）正确可联系</li>
+<li>没有占位文字（「此处添加…」「Lorem ipsum」）</li>
+<li>标题、标语拼写无误</li>
+<li>锚点跳转（目录/回到顶部）有效</li>
+<li>F12 看源码，没有硬编码的秘密</li>
+<li>用无痕窗口打开，体验「陌生人视角」</li>
+</ol>
+<h4 id="_59">迭代改设计指令库（直接抄）</h4>
+<ul>
+<li>配色：「主色换成靛蓝 #2563eb，强调色用橙色」</li>
+<li>字体：「正文用系统无衬线，标题加粗、字号大一号」</li>
+<li>间距：「卡片之间间距加到 24px，更透气」</li>
+<li>布局：「首屏改成左文右图，电脑左右分、手机上下叠」</li>
+<li>模块：「在作品区下面加一个『客户评价』模块，3 条」</li>
+<li>响应式：「手机上把三列卡片改成单列，导航收成汉堡菜单」</li>
+</ul>
+<h4 id="walkthrough">真实 walkthrough：个人作品集站</h4>
+<p>你：「帮我做个人作品集单页。结构：顶部导航（首页/作品/关于/联系）、首屏一句话介绍+头像、作品区 3 个项目卡（图+标题+一句话+点开看详情）、关于我一段、底部邮箱+微信。简洁现代，主色靛蓝，自适应。先出框架。」</p>
+<p>AI：生成框架 + 预览链接。</p>
+<p>你（看结构 OK）：「标题再大、主色确认靛蓝、作品卡间距加大、加 favicon。」→ 改完。</p>
+<p>你：「关于我那段帮我写个草稿，我自己填真实经历。」→ 它出草稿。</p>
+<p>你（填完真实内容、换好图）：「部署上线。」→ 拿链接，按验收清单点一遍，发自己看。</p>
+<p>全程你没写一行代码，只做了「说需求 + 验收 + 填真实信息」。</p>
+<h4 id="_60">常见场景速查（一句话需求模板）</h4>
+<ul>
+<li>作品集：<code>搭个人作品集单页，导航[首页/作品/关于/联系]，作品区N个卡片，简洁，主色X，自适应</code></li>
+<li>落地页：<code>搭一个产品落地页，首屏卖点+CTA按钮，下面功能三点+用户评价，主色X</code></li>
+<li>博客：<code>搭一个博客框架，文章列表页+文章详情页，支持 Markdown，简洁阅读风</code></li>
+<li>活动页：<code>搭活动报名页，时间地点+议程+报名表单（接邮箱），活泼风</code></li>
+</ul>
+<h4 id="_61">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我做一个个人作品集网站，单页就行。结构：顶部导航（首页/作品/关于/联系）、首屏一句自我介绍+头像、作品区展示 3 个项目卡片（点开看详情）、关于我一段文字、底部联系方式（邮箱+微信）。风格：简洁现代、主色靛蓝、手机电脑都适配。先出框架，我逐条改。</p>
+</blockquote>
+<p>变体 A（落地页）：</p>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我做一个产品落地页单页：首屏一句主张+一个「立即体验」按钮，下面三块功能介绍（图标+标题+说明），再一段用户评价，底部 FAQ。风格科技感、主色深蓝、自适应。先出框架。</p>
+</blockquote>
+<p>变体 B（博客）：</p>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我搭一个极简博客：左侧文章列表（标题+日期+摘要），点开是详情页（大标题+正文+代码块样式），顶部搜索框。阅读友好、字体大、留白多。先出框架，我再加文章。</p>
+</blockquote>
+<h4 id="_62">试一试</h4>
+<p>搭一个「读书笔记分享」单页：首页书名列表，点进去看笔记。先要框架，再加一个「搜索框」功能试试迭代——体会「说一句需求，它就改一处」的节奏。</p>
+<p>进阶试：给这个单页加「深色模式切换按钮」，看它怎么处理配色与状态。再按「上线前验收清单」逐项点一遍，确认没遗漏再发布。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>第一次搭网站？先看入门手册第 14 篇《帮你搭一个个人网站》（<a href="../#14" target="_blank" rel="noopener">点此跳转</a>）——那篇 3 分钟出框架，这章教你做扎实、做安全。
+</div>
+
+<h4 id="_63">小结</h4>
+<p>你当产品经理，AI 写代码。小步快跑，先单页再迭代；上线前按验收清单逐项点过；任何秘密不进页面；部署可选一键托管或自有 GitHub Pages。把网站当「能一直改的东西」，而不是「做完就完」。</p>
+<hr />
+</section><section class="chapter"><h3 id="10-ai">第 10 章：让 AI 帮你做一个小工具 / 小应用</h3>
+<p>比网站更小的是「工具」：计算器、待办、转换器、统计器。这些往往一个网页就能跑，最适合练手，也最容易让你尝到「我自己做了个能用的东西」的甜头。</p>
+<h4 id="_64">你将学到</h4>
+<ul>
+<li>AI 能做什么样的工具</li>
+<li>怎么描述工具需求（输入/输出/逻辑）</li>
+<li>看到运行效果、迭代改进</li>
+<li>把工具分享给别人</li>
+</ul>
+<h4 id="_65">核心概念</h4>
+<p>描述工具用「输入 → 处理 → 输出」三段法最准：
+- 输入：用户填什么（金额、年限、文本）
+- 处理：算什么（月供 = 本金×利率/…）
+- 输出：给什么（结果 + 提示）</p>
+<p>比如房贷计算器：「输入金额和年限 → 按月供公式算 → 输出月供和总利息」。把这个说清，它做出的工具就能用。反过来说不清这三段，它就会自由发挥，界面和功能都对不上你的心思。</p>
+<figure class="figure">
+<svg viewBox="0 0 680 150" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC',sans-serif">
+<rect x="14" y="40" width="190" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="109" y="68" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="600">输入</text>
+<text x="109" y="90" text-anchor="middle" font-size="11" fill="#64748b">用户填：房价/首付/</text>
+<text x="109" y="105" text-anchor="middle" font-size="11" fill="#64748b">年限/年利率</text>
+<line x1="204" y1="77" x2="244" y2="77" stroke="#94a3b8" stroke-width="1.6"/>
+<path d="M238 71 L247 77 L238 83" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+<rect x="247" y="40" width="190" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="342" y="68" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="600">处理</text>
+<text x="342" y="90" text-anchor="middle" font-size="11" fill="#64748b">按等额本息公式算</text>
+<text x="342" y="105" text-anchor="middle" font-size="11" fill="#64748b">月供与总利息</text>
+<line x1="437" y1="77" x2="477" y2="77" stroke="#94a3b8" stroke-width="1.6"/>
+<path d="M471 71 L480 77 L471 83" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+<rect x="480" y="40" width="190" height="74" rx="10" fill="#2563eb" stroke="#2563eb" stroke-width="1.2"/>
+<text x="575" y="68" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="600">输出</text>
+<text x="575" y="90" text-anchor="middle" font-size="11" fill="#dbeafe">月供 / 总利息 /</text>
+<text x="575" y="105" text-anchor="middle" font-size="11" fill="#dbeafe">还款总额（大字）</text>
+</svg>
+<figcaption>图：「输入 → 处理 → 输出」三段法——把工具讲清楚，AI 做出来才真的能用。以房贷计算器为例。</figcaption>
+</figure>
+
+<h4 id="_66">操作步骤</h4>
+<ol>
+<li>用「输入/处理/输出」写需求</li>
+<li>它生成网页工具，给预览</li>
+<li>试玩，说「加个提前还款功能」「利率可手填」</li>
+<li>满意后部署，把链接发给别人</li>
+</ol>
+<h4 id="_67">常见坑</h4>
+<ul>
+<li><strong>逻辑没说清</strong>：只说「做个记账工具」，没说清楚怎么算结余、怎么分类，它做出来的界面你不会用。把三步写明白，质量立刻不同。</li>
+<li><strong>一次加一堆功能</strong>：先要「能算的」，跑通了再加「能存历史」。工具贵在「刚好够用」。</li>
+</ul>
+<h4 id="_68">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>帮我做一个房贷计算器网页：输入房价、首付比例、贷款年限、年利率；点击计算，输出月供、总利息、还款总额；用等额本息公式；界面简洁，结果用大号数字显示，手机能用。</p>
+</blockquote>
+<h4 id="_69">试一试</h4>
+<p>做个「番茄钟」网页：25 分钟倒计时、可暂停、到点提醒。再加一个「自动记录今天完成了几个番茄」的小功能。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>想先快速要一个能用的小工具？看入门手册第 15 篇《帮你做一个小工具》（<a href="../#15" target="_blank" rel="noopener">点此跳转</a>）——那篇更轻，这章补「输入/处理/输出」的拆解方法。
+</div>
+
+<h4 id="_70">小结</h4>
+<p>工具 = 输入/处理/输出三段描述。先最小可用，再迭代加功能。部署后即可分享。</p>
+<hr />
+</section>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>目标：读完这两章，你能用 WorkBuddy 搭出一个可访问的网站、或一个能跑的小工具——零代码，你只管说需求。</p>
+</blockquote>
+<hr />
+<h2 id="ai_2">第四板块：让 AI 自动干活</h2><section class="chapter"><h3 id="11-ai">第 11 章：自动化——让 AI 定时帮你干活</h3>
+<p>前面都是「你在，它干」。这章是「你不在，它也在干」——定好规则，到点自动执行。读完这章，你不该只会「设个提醒」，而要能自己设计任意定时任务，并知道哪里有坑。</p>
+<h4 id="_71">你将学到</h4>
+<ul>
+<li>自动化是什么：像闹钟，到点 AI 自动跑一段你写好的指令</li>
+<li>能定时做什么：日报、周报、提醒、整理、监控</li>
+<li>触发时间怎么设：每天/每周/每月/指定日期，rrule 到底怎么写</li>
+<li>一次性 vs 重复：哪种场景用哪个</li>
+<li>任务指令怎么写：读什么、产出什么、发哪、边界在哪</li>
+<li>工作空间怎么用：它读写的那个文件夹</li>
+<li>怎么查看、暂停、删除、排查没执行的问题</li>
+</ul>
+<h4 id="_72">核心概念</h4>
+<p>自动化 = 把一段你常让 AI 做的事，「固化成定时触发」。比如你每天让 AI 看「重要提醒」文档发简报，不如设成「每天 9 点自动跑」。你的角色从「每次手动发起」变成「设计一次、长期受益」。</p>
+<p>三个要素：
+1. <strong>触发时间</strong>（每天几点的 rrule，或指定某天某刻）
+2. <strong>任务指令</strong>（写清读什么、产出什么、发哪）
+3. <strong>工作空间</strong>（它要读写的文件夹）</p>
+<p>边界：自动化能干「读文件 + 生成 + 发通知」这类确定动作，不能干「需要你实时判断」的事（比如「看到邮件觉得重要就回」它判断不了）。涉及删除/发送，指令里务必写「先确认再执行」——否则某天它按老规则自动删了东西，你哭都来不及。</p>
+<p>一句话：<strong>自动化是杠杆，不是自动驾驶。你设计规则，它照章办事；章你自己定。</strong></p>
+<figure class="figure">
+<svg viewBox="0 0 680 150" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC',sans-serif">
+<rect x="14" y="34" width="190" height="64" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="109" y="60" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="600">① 触发时间</text>
+<text x="109" y="80" text-anchor="middle" font-size="11" fill="#64748b">每天9点 / 每周一</text>
+<rect x="245" y="34" width="190" height="64" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="340" y="60" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="600">② 任务指令</text>
+<text x="340" y="80" text-anchor="middle" font-size="11" fill="#64748b">读什么/产出什么/发哪</text>
+<rect x="476" y="34" width="190" height="64" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="571" y="60" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="600">③ 工作空间</text>
+<text x="571" y="80" text-anchor="middle" font-size="11" fill="#64748b">要读写的文件夹</text>
+<line x1="204" y1="66" x2="244" y2="66" stroke="#94a3b8" stroke-width="1.4"/>
+<line x1="435" y1="66" x2="475" y2="66" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="200" y="112" width="280" height="30" rx="15" fill="#2563eb"/>
+<text x="340" y="132" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="600">到点自动跑 → 你收到简报</text>
+</svg>
+<figcaption>图：自动化 = 触发时间 + 任务指令 + 工作空间。三要素齐了，你不在它也在干活。</figcaption>
+</figure>
+
+<h4 id="_73">操作步骤</h4>
+<ol>
+<li><strong>想清楚</strong>：什么活你重复让 AI 做？（每天看提醒、每周整理文档、每月出报表）</li>
+<li><strong>写任务指令</strong>：用本章「任务指令写法框架」（见常见坑之后）。</li>
+<li><strong>备好工作空间</strong>：建好它要读的文件（如「重要提醒.md」），放对位置。</li>
+<li><strong>设触发时间</strong>：每天/每周/指定日期，用 rrule 或一次性。</li>
+<li><strong>先手动跑一次</strong>：看它干的是不是你想要的，再正式启用。</li>
+<li><strong>正式启用 + 观察</strong>：头几天留意运行结果，不对就调指令。</li>
+</ol>
+<h4 id="_74">常见坑</h4>
+<ul>
+<li><strong>没先测试就启用</strong>：直接开「每天自动删旧文件」，结果把有用的删了。任何自动化，先手动跑一次确认它干的是你想要的。</li>
+<li><strong>指令太模糊</strong>：「每天帮我整理文件」——它不知道整理成啥样。把「读哪个文件夹、按什么规则、放哪」写死。</li>
+<li><strong>忘了它能停</strong>：不确定它干啥了，去任务列表暂停或删除即可，自动化始终在你手里。</li>
+<li><strong>危险操作没护栏</strong>：让自动化「自动发邮件」「自动删文件」却没写「先确认」，某天规则出错就真发出去了/删了。发送与删除类，永远「先出清单等我确认」。</li>
+</ul>
+<h4 id="rrule">触发时间怎么设（rrule 速查）</h4>
+<ul>
+<li><strong>每天固定时刻</strong>：<code>每天 9:00</code></li>
+<li><strong>每周某天</strong>：<code>每周一 8:30</code></li>
+<li><strong>每月某天</strong>：<code>每月 1 号 10:00</code></li>
+<li><strong>工作日</strong>：<code>每个工作日 18:00</code>（排除周末）</li>
+<li><strong>指定某天某刻（一次性）</strong>：<code>2026-09-01 09:00</code>，跑完即止</li>
+<li><strong>每小时/每 N 小时</strong>：<code>每 2 小时</code>（适合监控类）</li>
+</ul>
+<p>实在写不准，就直接说人话：「每天早上去读我的提醒文档发简报」——WorkBuddy 会帮你落成规则。</p>
+<h4 id="vs">一次性 vs 重复：怎么选</h4>
+<ul>
+<li><strong>重复（recurring）</strong>：周期性、可预期的事——日报、周报、定期整理、生日提醒。</li>
+<li><strong>一次性（once）</strong>：特定某天某刻才发生——「9 月 1 日 9 点提醒我交材料」「今晚 8 点提醒我开会」。跑一次就结束。</li>
+</ul>
+<p>别把一次性的设成重复，否则它会天天提醒你交那份早交完的材料。</p>
+<h4 id="_75">任务指令写法框架</h4>
+<p>一条稳的自动化指令，建议包含四段：</p>
+<ol>
+<li><strong>读什么</strong>：<code>读取工作空间里的「重要提醒.md」</code></li>
+<li><strong>产出什么</strong>：<code>提取今天开始/截止的事项，生成当日待办简报（今日待办 / 临近截止 / 提醒）</code></li>
+<li><strong>发哪</strong>：<code>通过系统通知发给我</code>（或「通过已连邮箱发给我自己」）</li>
+<li><strong>边界</strong>：<code>无事项发「今日无提醒」；任何文件改动前先列清单等我确认</code></li>
+</ol>
+<p>把四段写全，它跑起来才不会「自由发挥」。</p>
+<h4 id="_76">工作空间怎么用</h4>
+<ul>
+<li>自动化要读写的文件，放在这个任务绑定的「工作空间」文件夹里。</li>
+<li>命名固定（如永远叫「重要提醒.md」），指令里写死路径，它才找得到。</li>
+<li>多个自动化别混用一个文件夹，免得互相干扰；按项目分文件夹最稳。</li>
+</ul>
+<h4 id="_77">能力边界清单</h4>
+<p>能干：读文件、生成内容、发通知/邮件、调用已连连接器、整理归类。
+不能干（或要谨慎）：需要你实时判断的取舍、涉及真金白银的操作、需要验证码/人工登录的外部动作、无确认地删除/发送。</p>
+<h4 id="_78">危险操作护栏</h4>
+<p>涉及「删除」「发送」「对外发布」的自动化，指令里必须写：
+- 「执行前先列出将要改动的文件/将要发送的内容」
+- 「等我确认后再动手」
+- 不确定时就「跳过并通知我」</p>
+<p>宁可多一步确认，也别让它半夜自动把东西发出去或删掉。</p>
+<h4 id="_79">怎么管理（查看 / 暂停 / 删除）</h4>
+<ul>
+<li>在自动化列表里能看到每个任务的「下次运行时间」「上次运行状态」。</li>
+<li>怀疑它干错事了：先<strong>暂停</strong>，看运行历史（它每次跑了啥、产出啥）。</li>
+<li>不想要了：<strong>删除</strong>，规则立刻失效，已做的事不会回滚（所以删除类更要先确认）。</li>
+<li>改时间/改指令：直接编辑任务，保存后按新规则跑。</li>
+</ul>
+<h4 id="_80">故障排查表</h4>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>先查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>到点没跑</td>
+<td>任务是否启用？时间设置对不对？</td>
+</tr>
+<tr>
+<td>读了空/读错</td>
+<td>工作空间路径对吗？文件名和指令里写的一致吗？</td>
+</tr>
+<tr>
+<td>格式乱</td>
+<td>指令里的「产出格式」写清了吗？</td>
+</tr>
+<tr>
+<td>重复触发</td>
+<td>是不是设成了重复却只想跑一次？</td>
+</tr>
+<tr>
+<td>发不出去</td>
+<td>连接器授权还在吗？权限够吗？</td>
+</tr>
+<tr>
+<td>内容不对</td>
+<td>指令的「读什么/产出什么」有没有写死</td>
+</tr>
+</tbody>
+</table>
+<h4 id="walkthrough_1">实战 walkthrough：从「提醒小助手」升级到「每日简报」</h4>
+<p>第 1 篇你手动建了「重要提醒.md」+ 手动让 AI 发。现在固化成自动化：</p>
+<ol>
+<li>工作空间里放好 <code>重要提醒.md</code>（第 1 篇已建）。</li>
+<li>设任务：每天 9:00。</li>
+<li>指令（用四段框架）：<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>每天 9:00 自动：读取工作空间「重要提醒.md」→ 提取当天开始/截止事项 → 生成简报（今日待办 / 临近截止 / 提醒）→ 通过已连邮箱发给我自己。格式清晰、手机好看。无事项发「今日无提醒」。任何改动前先确认。</p>
+</blockquote>
+</li>
+<li>手动跑一次，确认简报对。</li>
+<li>正式启用。从此每天睡醒，邮箱里躺着当日简报。</li>
+</ol>
+<p>这就是「AI 真成你助理」的门槛体验。</p>
+<h4 id="_81">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>每天早上 9:00 自动执行：读取工作空间里的「重要提醒.md」，提取今天开始/截止的事项，生成一份当日待办简报，通过系统通知发给我。如果当天没有事项，发一句「今日无提醒」即可。涉及任何文件改动前先列清单等我确认。</p>
+</blockquote>
+<p>变体 A（每周整理）：</p>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>每周一 8:30 自动：读取工作空间「周报素材」文件夹里的本周笔记，生成一份周报摘要（做了啥 / 卡在哪 / 下周计划），存回该文件夹「周报_YYYYMMDD.md」，并通知我。素材不足时提醒我补，不要编造。</p>
+</blockquote>
+<p>变体 B（监控类）：</p>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>每小时检查一次工作空间「待处理」文件夹，若有新文件，生成一句话摘要发我通知；无新文件则静默不扰。</p>
+</blockquote>
+<h4 id="_82">试一试</h4>
+<p>设一个「每周一 8:30 自动整理上周工作文档目录、生成周报摘要」的任务，先手动跑一次验证（看它读的是不是对的文件夹、摘要格式你满不满意），再正式启用。</p>
+<p>进阶试：把变体 B 的「监控文件夹」改成监控你已连的邮箱「未读」，每小时提醒你有没有重要新邮件——体会自动化 + 连接器串联。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>入门手册第 16 篇《每日工作简报》（<a href="../#16" target="_blank" rel="noopener">点此跳转</a>）就是自动化的轻量玩法；这章讲清「触发时间/指令/工作空间」三要素，让你能自己设计任意定时任务。
+</div>
+
+<h4 id="_83">小结</h4>
+<p>自动化 = 时间 + 指令 + 工作空间。用「四段框架」写指令最稳；删除/发送类务必「先确认」，上线前先手动测；它能停、能改、能删，始终在你手里。把重复活固化成定时，你才真正多出一个「不在场的自己」。</p>
+<hr />
+</section><section class="chapter"><h3 id="12-ai">第 12 章：连接器——让 AI 连上你的其他工具</h3>
+<p>WorkBuddy 本身是个孤岛，连接器是桥——把邮箱、网盘、日历等接进来，它就能直接操作那些服务。</p>
+<h4 id="_84">你将学到</h4>
+<ul>
+<li>连接器是什么：插头插座，把 WorkBuddy 接上外部服务</li>
+<li>有哪些可用（邮箱、网盘、文档、项目管理…）</li>
+<li>怎么连：找到入口 → 连接 → 授权</li>
+<li>连后能做什么：对话里收发邮件、管网盘、理日程</li>
+<li>安全：授权了什么、能撤吗</li>
+</ul>
+<h4 id="_85">核心概念</h4>
+<p>连上邮箱后，你不用切到邮箱 App，直接对话：「看一下今天未读，给我摘要」「把这封回复了」。连上网盘，它能读你盘里的文件、帮你整理。</p>
+<p><strong>安全第一</strong>：连接 = 授权。授权前看清它申请了哪些权限（只读？还是能发能删？）。连完在连接器列表里随时能「断开」。陌生服务先连只读权限的试试。</p>
+<figure class="figure">
+<svg viewBox="0 0 680 220" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC',sans-serif">
+<rect x="270" y="86" width="140" height="50" rx="10" fill="#2563eb"/>
+<text x="340" y="110" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="600">WorkBuddy</text>
+<text x="340" y="127" text-anchor="middle" font-size="10" fill="#dbeafe">你这边</text>
+<rect x="40" y="30" width="150" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="115" y="57" text-anchor="middle" font-size="13" fill="#1f2937">邮箱</text>
+<rect x="490" y="30" width="150" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="565" y="57" text-anchor="middle" font-size="13" fill="#1f2937">网盘</text>
+<rect x="265" y="170" width="150" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="340" y="197" text-anchor="middle" font-size="13" fill="#1f2937">日历</text>
+<line x1="190" y1="52" x2="270" y2="100" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
+<line x1="490" y1="52" x2="410" y2="100" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
+<line x1="340" y1="136" x2="340" y2="170" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="215" y="78" text-anchor="middle" font-size="10" fill="#64748b">读/写</text>
+<text x="455" y="78" text-anchor="middle" font-size="10" fill="#64748b">读/整理</text>
+<text x="362" y="156" text-anchor="middle" font-size="10" fill="#64748b">建提醒</text>
+</svg>
+<figcaption>图：连接器是桥——把邮箱、网盘、日历接进 WorkBuddy，你就能在对话里直接操作这些服务。</figcaption>
+</figure>
+
+<h4 id="_86">操作步骤</h4>
+<ol>
+<li>打开连接器列表，找你常用的服务</li>
+<li>点连接，按提示登录授权</li>
+<li>连好后，对话里直接用（「查我最近 5 封邮件」）</li>
+<li>不确定权限就回列表点开看「已授权范围」</li>
+<li>不用了就断开</li>
+</ol>
+<h4 id="_87">常见坑</h4>
+<ul>
+<li><strong>闭眼授权</strong>：连了个不知名服务，给了「能发邮件」的权限，回头它真发了。连之前一定看权限范围，能选只读就选只读。</li>
+<li><strong>连完就忘</strong>：不再用的连接器一直挂着，等于一直开着一道门。定期回列表清理不用的。</li>
+</ul>
+<h4 id="_88">直接可用的指令（连接邮箱后）</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>看一下我今天的未读邮件，按「重要/普通」分类给摘要，每条一句话说清谁、什么事、要不要我回。需要回复的帮我起草回复草稿，别直接发。</p>
+</blockquote>
+<h4 id="_89">试一试</h4>
+<p>连一个你最常用、且支持只读的服务（比如某个网盘），让它「列出最近修改的 10 个文件」。体验「对话即操作」。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>想看连接器怎么在 3 分钟内用起来？看入门手册第 18 篇《连接邮箱》（<a href="../#18-ai" target="_blank" rel="noopener">点此跳转</a>）——那篇给可直接抄的连接指令，这章讲清「桥」的原理和安全边界。
+</div>
+
+<h4 id="_90">小结</h4>
+<p>连接器 = 桥。连上就能对话操作外部服务。授权前看权限，随时能撤。附录 C 有连接器一览。</p>
+<hr />
+</section><section class="chapter"><h3 id="13-ai">第 13 章：技能与专家——给 AI 装上「专业外挂」</h3>
+<p>能力不够用？装个技能；想听专业建议？找个专家。这章讲清两者区别和怎么用。</p>
+<h4 id="_91">你将学到</h4>
+<ul>
+<li>技能是什么：装 App，AI 本身 + 技能 = 新能力</li>
+<li>怎么发现、安装技能</li>
+<li>专家是什么：请顾问，切换角色给专业建议</li>
+<li>技能 vs 专家的区别</li>
+<li>常用推荐</li>
+</ul>
+<h4 id="_92">核心概念</h4>
+<p><strong>技能</strong>是「能力增强」：装了 PDF 处理技能，AI 就能合并/拆分/加密 PDF；装了表格技能，表格处理更稳。本质是给 AI 加了专用工具箱。</p>
+<p><strong>专家</strong>是「角色切换」：进入「法律专家」，它用法律视角答你；进入「增长专家」，用运营视角。本质是换了个顾问。</p>
+<p>区别一句话：<strong>技能让它「更能干」，专家让它「更专业」</strong>。</p>
+<figure class="figure">
+<svg viewBox="0 0 680 160" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC',sans-serif">
+<rect x="20" y="24" width="300" height="116" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+<text x="40" y="52" font-size="15" fill="#1f2937" font-weight="700">技能 = 能力增强</text>
+<text x="40" y="78" font-size="12" fill="#475569">像给手机装 App</text>
+<text x="40" y="100" font-size="12" fill="#475569">装了 PDF 技能 → 会合并/拆分</text>
+<text x="40" y="122" font-size="12" fill="#1d4ed8" font-weight="600">它「更能干」</text>
+<rect x="360" y="24" width="300" height="116" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="1.2"/>
+<text x="380" y="52" font-size="15" fill="#1f2937" font-weight="700">专家 = 角色切换</text>
+<text x="380" y="78" font-size="12" fill="#475569">像请了个顾问</text>
+<text x="380" y="100" font-size="12" fill="#475569">进入法律专家 → 用法律视角答</text>
+<text x="380" y="122" font-size="12" fill="#047857" font-weight="600">它「更专业」</text>
+</svg>
+<figcaption>图：技能让它「更能干」（装工具箱），专家让它「更专业」（换顾问）。一个加能力，一个换视角。</figcaption>
+</figure>
+
+<h4 id="_93">操作步骤</h4>
+<ol>
+<li>技能：进技能中心 → 搜关键词（PDF/表格/文档）→ 看介绍 → 安装 → 对话里直接用</li>
+<li>专家：进专家中心 → 选领域 → 开始对话</li>
+<li>不确定装哪个，先搜看描述再决定</li>
+<li>装完试用，不好用就卸</li>
+</ol>
+<h4 id="_94">常见坑</h4>
+<ul>
+<li><strong>该用专家却装技能</strong>：要的是「专业判断」（比如合同有没有坑），装个 PDF 技能没用，得进法律专家。先想清楚你要「能力」还是「视角」。</li>
+<li><strong>技能装一堆不用</strong>：装了二十个，平时用两个，反而让对话变慢、变乱。够用就好，定期清理。</li>
+</ul>
+<h4 id="_95">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>在技能市场搜索「PDF」，把处理类技能里评分最高的装一个。装好后帮我合并桌面上三份合同 PDF（a.pdf/b.pdf/c.pdf）成一份，命名「合并合同.pdf」，放桌面。</p>
+</blockquote>
+<h4 id="_96">试一试</h4>
+<p>进专家中心，找一个你工作相关的领域专家（如「增长」「法律」「写作」），问它一个你真实遇到的问题，感受「角色切换」的回答质量。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>入门手册第 20 篇《装个技能》（<a href="../#20-ai-buff" target="_blank" rel="noopener">点此跳转</a>）和第 21 篇《找个专家》（<a href="../#21" target="_blank" rel="noopener">点此跳转</a>）是更轻的入手；这章帮你分清「该装技能还是该请专家」。
+</div>
+
+<h4 id="_97">小结</h4>
+<p>技能=能力增强（装 App），专家=角色切换（请顾问）。附录 D 有新手友好技能清单。</p>
+<hr />
+</section>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>目标：读完这三章，你能设定时任务、连外部服务、装专业外挂，让 AI 在你不在时也能干活。</p>
+</blockquote>
+<hr />
+<h2 id="_98">第五板块：综合实战</h2><section class="chapter"><h3 id="14-1">第 14 章：综合实战 1——从零搭建个人作品集网站</h3>
+<p>把第 3 章（提问）、第 4 章（写作）、第 8 章（配图）、第 9 章（建站）串起来，做一件完整的事。</p>
+<h4 id="_99">项目描述</h4>
+<p>从零搭一个可访问的个人作品集网站并上线，包含首页、关于、作品、联系。</p>
+<h4 id="_100">步骤拆解</h4>
+<ol>
+<li><strong>规划结构</strong>：首页 / 关于我 / 作品展示 / 联系方式</li>
+<li><strong>写内容</strong>：用第 4 章方法写自我介绍、项目描述（先草稿，导出再润）</li>
+<li><strong>配图</strong>：用第 8 章给首页和作品配图</li>
+<li><strong>生成框架</strong>：用第 9 章指令让 AI 搭单页站点</li>
+<li><strong>迭代设计</strong>：逐条改配色、字体、布局</li>
+<li><strong>部署上线</strong>：拿到链接，发给自己看</li>
+<li><strong>优化</strong>：加 favicon、测手机适配</li>
+</ol>
+<h4 id="_101">学到的东西</h4>
+<p>对话技巧 + 文档写作 + 图片生成 + 网站搭建 + 部署，全流程串联。这是检验你前面学得扎不扎实的试金石。</p>
+<h4 id="_102">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>按这个结构搭个人作品集单页：首屏自我介绍（我叫 XX，做 XX）+ 三个作品卡片（每个有图、标题、一句话说明、点开看详情）+ 关于我一段 + 底部联系方式。风格现代简洁，主色按我的头像取色，手机电脑自适应。先出框架，我逐条改。</p>
+</blockquote>
+<h4 id="_103">试一试</h4>
+<p>别只看，真做。从规划到上线，跑完一遍，把链接发小助理。这是你第一个「作品」。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>若是第一次做网站，先读入门手册第 14 篇《帮你搭一个个人网站》（<a href="../#14" target="_blank" rel="noopener">点此跳转</a>）热个身，再回来按这章的完整流程跑通。
+</div>
+
+<hr />
+</section><section class="chapter"><h3 id="15-2">第 15 章：综合实战 2——每日工作简报自动化</h3>
+<p>把第 11 章（自动化）、第 12 章（连接器）、第 5 章（表格）串起来，做一个「每天自动跑」的流程。</p>
+<h4 id="_104">项目描述</h4>
+<p>每天定时读你的工作文档 → 生成当日简报 → 通过邮件发给你自己。你睡醒就有简报。</p>
+<h4 id="_105">步骤拆解</h4>
+<ol>
+<li>建「重要提醒」文档，固定目录维护（见第 1 章示例）</li>
+<li>连接邮箱（第 12 章连接器）</li>
+<li>设自动化（第 11 章）：每天 9:00</li>
+<li>写指令：读文档 → 提今日待办 → 生成简报 → 发邮件</li>
+<li>测试跑一次，调格式</li>
+<li>正式启用，日常只维护文档</li>
+</ol>
+<h4 id="_106">学到的东西</h4>
+<p>文档管理 + 连接器 + 自动化 + 邮件，多技能串联。这是最接近「AI 真成你助理」的体验。</p>
+<h4 id="_107">直接可用的指令</h4>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>每天 9:00 自动：读工作空间「重要提醒.md」→ 提取当天开始/截止事项 → 生成简报（今日待办 / 临近截止 / 提醒） → 通过已连邮箱发给我自己。格式清晰、手机好看。无事项发「今日无提醒」。任何改动前先确认。</p>
+</blockquote>
+<h4 id="_108">试一试</h4>
+<p>把第 1 章那个「提醒小助手」升级成这版：连邮箱 + 自动发。跑通后你就有了第一个真·自动化助理。</p>
+<div class="xref">
+<b>↪ 关联入门册：</b>入门手册第 1 篇《提醒小助手》（<a href="../#1_1" target="_blank" rel="noopener">点此跳转</a>）就是这套自动化的「手动版」起点——先在那篇把提醒文档建好，再回这章一键升级成每天自动发邮件。
+</div>
+
+<hr />
+</section><section class="chapter"><h3 id="16">第 16 章：小白避坑指南——常见问题与解决方案</h3>
+<p>本章不讲新能力，专讲「翻车了怎么办」。建议书签。</p>
+<h4 id="_109">常见问题速查</h4>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 回答不是我要的</td>
+<td>重述需求，套第 3 章万能公式</td>
+</tr>
+<tr>
+<td>文档格式乱了</td>
+<td>对话里指具体问题，让它重生成</td>
+</tr>
+<tr>
+<td>网站搭一半报错</td>
+<td>把报错贴给它，让它自己修</td>
+</tr>
+<tr>
+<td>自动化没执行</td>
+<td>查时间设置、工作空间、任务状态</td>
+</tr>
+<tr>
+<td>连接器授权失败</td>
+<td>取消授权重连</td>
+</tr>
+<tr>
+<td>它说「做不到」</td>
+<td>换说法，或搜对应技能</td>
+</tr>
+<tr>
+<td>对话太长它忘了前文</td>
+<td>开新对话，关键信息重说</td>
+</tr>
+<tr>
+<td>图不满意</td>
+<td>加风格词、调描述</td>
+</tr>
+</tbody>
+</table>
+<h4 id="10">好习惯清单（10 条）</h4>
+<ol>
+<li>指令写清身份/任务/要求/补充</li>
+<li>大文件先问「能不能处理」再传</li>
+<li>删除类操作永远「先清单后确认」</li>
+<li>授权外部服务看清权限范围</li>
+<li>长项目用工作空间文档存上下文</li>
+<li>复杂需求拆小步，别一次要太多</li>
+<li>重要产出导出备份（Word/Excel）</li>
+<li>隐私信息绝不进对话</li>
+<li>自动化先手动测再启用</li>
+<li>卡住就把报错原样贴给它</li>
+</ol>
+<h4 id="_110">进阶路线图</h4>
+<p>学完本书，下一步可探索：多工具串联的复杂自动化、用 API 接自己的业务系统、训练专属专家、把常用指令存成模板库。这些超出「进阶」范畴，是「精通」之路。</p>
+<hr />
+</section>
+<blockquote class="prompt"><button class="copy-btn" type="button">复制</button>
+<p>目标：用前面学的，完整跑两个项目，并掌握翻车了怎么办。</p>
+</blockquote>
+<hr />
+<h2 id="aworkbuddy">附录 A：WorkBuddy 能力速查表</h2>
+<p>一页看完所有功能，写不动时查这张表。</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>一句话</th>
+<th>对应章节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>写作</td>
+<td>文章/报告/邮件/文案</td>
+<td>4</td>
+</tr>
+<tr>
+<td>读 PDF</td>
+<td>总结/抽条款/转 Word</td>
+<td>7</td>
+</tr>
+<tr>
+<td>做表</td>
+<td>生成/分析/清洗/出图</td>
+<td>5</td>
+</tr>
+<tr>
+<td>做 PPT</td>
+<td>大纲→pptx</td>
+<td>6</td>
+</tr>
+<tr>
+<td>生图/视频</td>
+<td>描述词出图/短视频</td>
+<td>8</td>
+</tr>
+<tr>
+<td>建站</td>
+<td>单页/多页网站</td>
+<td>9</td>
+</tr>
+<tr>
+<td>做工具</td>
+<td>计算器/番茄钟等</td>
+<td>10</td>
+</tr>
+<tr>
+<td>自动化</td>
+<td>定时跑指令</td>
+<td>11</td>
+</tr>
+<tr>
+<td>连接器</td>
+<td>接邮箱/网盘/日历</td>
+<td>12</td>
+</tr>
+<tr>
+<td>技能/专家</td>
+<td>装外挂/请顾问</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="b20">附录 B：提问模板大全（20 个场景）</h2>
+<p>卡住时直接抄，把括号里换成你的内容。</p>
+<ol>
+<li>写邮件：帮我写一封[场合]邮件，收件人[谁]，目的[啥]，语气[风格]，[字数]内。</li>
+<li>写总结：把下面内容总结成[几点]，每点[字数]，保留关键数字。</li>
+<li>改文案：把这段改得更[风格]，[字数]内，别用[禁忌]。</li>
+<li>做表：生成[主题]表，列[表头]，至少[行数]行。</li>
+<li>分析表：上传[文件]，按[维度]汇总，找出[异常]，出[图类型]。</li>
+<li>做 PPT：做[页数]页[主题]PPT，风格[啥]，每页[内容]。</li>
+<li>读 PDF：上传[文件]，用[字数]总结核心，列出[几条]关键数据并标页码。</li>
+<li>生图：画[主体]+[场景]+[风格]+[色调]+[构图]。</li>
+<li>建站：搭[类型]网站，页面[列举]，风格[啥]，自适应。</li>
+<li>做工具：[输入]→[处理]→[输出]的[工具名]。</li>
+<li>定时：每[频率][时间]自动[任务]，读[文件]，发[渠道]。</li>
+<li>连邮箱：看我[范围]邮件，按[分类]给摘要，草稿别发。</li>
+<li>装技能：搜[关键词]技能，装[哪个]，帮我[干啥]。</li>
+<li>请专家：以[领域]专家身份，分析我的[问题]，给[建议类型]。</li>
+<li>翻译：把下面翻成[语言]，保持[语气]。</li>
+<li>润色：这段改通顺，别改原意，[字数]内。</li>
+<li>起名：给[产品/项目]起[数量]个名，风格[啥]，附含义。</li>
+<li>计划：为我[目标]做[周期]计划，分阶段，每阶段[产出]。</li>
+<li>解释：用大白话解释[概念]，举[数量]个生活例子。</li>
+<li>决策辅助：我在[选项]间纠结，列各自利弊，给我分析框架别替我决定。</li>
+</ol>
+<hr />
+<h2 id="c">附录 C：常用连接器一览</h2>
+<p>按用途分类，连之前先看权限范围。</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>常见连接器</th>
+<th>能做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>邮箱</td>
+<td>QQ 邮箱 / 网易邮箱 / 企业微信</td>
+<td>读未读、写摘要、起草回复</td>
+</tr>
+<tr>
+<td>网盘</td>
+<td>百度网盘 / 微云 / 金山文档</td>
+<td>列文件、读内容、整理</td>
+</tr>
+<tr>
+<td>文档</td>
+<td>腾讯文档 / 金山文档 / Notion</td>
+<td>读写在线文档</td>
+</tr>
+<tr>
+<td>日历</td>
+<td>腾讯会议 / 日历类</td>
+<td>查日程、建提醒</td>
+</tr>
+<tr>
+<td>协作</td>
+<td>飞书 / 钉钉 / 企业微信</td>
+<td>发消息、理待办</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>腾讯自选股 / Tushare 等</td>
+<td>查行情、拉数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>提示：</strong> 具体连接器列表以你账号里的「连接器中心」为准，上表为常见类型示意。连任何服务前，先看它申请了哪些权限。</p>
+<hr />
+<h2 id="d">附录 D：推荐技能清单（新手友好）</h2>
+<table>
+<thead>
+<tr>
+<th>技能方向</th>
+<th>适合解决</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDF 处理</td>
+<td>合并/拆分/加密/转 Word</td>
+<td>办公高频</td>
+</tr>
+<tr>
+<td>表格处理</td>
+<td>清洗/透视/公式</td>
+<td>数据党必备</td>
+</tr>
+<tr>
+<td>文档美化</td>
+<td>Word/报告排版</td>
+<td>汇报党必备</td>
+</tr>
+<tr>
+<td>图片生成</td>
+<td>配图/封面/素材</td>
+<td>社媒党必备</td>
+</tr>
+<tr>
+<td>浏览器自动化</td>
+<td>抓网页/填表/截图</td>
+<td>进阶再碰</td>
+</tr>
+</tbody>
+</table>
+<p><strong>提示：</strong> 进技能中心搜索关键词即可，上面是按「新手最常用」排的，不是全部。</p>
+<hr />
+<h2 id="e">附录 E：术语对照表（专业词 → 大白话）</h2>
 <table>
 <thead>
 <tr>
@@ -892,80 +1400,71 @@ blockquote.prompt p:last-child{margin-bottom:0;}
 </thead>
 <tbody>
 <tr>
-<td>Prompt / 提示词</td>
-<td>你跟 AI 说的话、下的指令</td>
+<td>工作空间</td>
+<td>一个文件夹，AI 能读写的地盘</td>
 </tr>
 <tr>
-<td>空间</td>
-<td>一个文件夹，AI 的工作范围（它只在这个范围内找文件、存文件）</td>
-</tr>
-<tr>
-<td>模型</td>
-<td>AI 的大脑。auto = 让系统自动选最合适的</td>
-</tr>
-<tr>
-<td>新任务</td>
-<td>每次和 AI 对话，开一个新的对话窗口</td>
-</tr>
-<tr>
-<td>自动化 / 定时任务</td>
-<td>让 AI 按你定的时间自动干活，比如每天早上 9 点</td>
+<td>模型 / auto</td>
+<td>干活的 AI 引擎，auto 让它自己挑</td>
 </tr>
 <tr>
 <td>连接器</td>
-<td>让 AI 能使用你其他软件/服务的东西（微信、邮箱、网盘都要先连接）</td>
+<td>把 AI 接上你其他 App 的桥</td>
 </tr>
 <tr>
 <td>技能</td>
-<td>给 AI 装的专业能力包，装了它干某类活更专业</td>
+<td>给 AI 装的专业 App，增强能力</td>
 </tr>
 <tr>
 <td>专家</td>
-<td>WorkBuddy 里的专业角色，法律、财务、医疗等领域</td>
+<td>切换成某个领域的顾问角色</td>
 </tr>
 <tr>
-<td>Markdown / MD</td>
-<td>一种简单的纯文本格式，用 #、-、* 这些符号排版，记事本就能写</td>
+<td>自动化</td>
+<td>定好规则，到点 AI 自动跑</td>
 </tr>
 <tr>
-<td>本地</td>
-<td>数据存在你自己的电脑上</td>
+<td>rrule</td>
+<td>重复执行的时刻表（每天/每周…）</td>
 </tr>
 <tr>
-<td>云端</td>
-<td>数据存在网上的服务器上</td>
+<td>Prompt</td>
+<td>你写给 AI 的指令</td>
 </tr>
 <tr>
-<td>部署 / 上线</td>
-<td>把做好的网站或应用发布到网上，别人能通过网址访问</td>
+<td>部署</td>
+<td>把做好的网站/工具发上线，别人能开</td>
 </tr>
 <tr>
-<td>API</td>
-<td>软件之间互相调用的接口。你不需要懂，知道这个词出现时多半是要接别的系统就行</td>
+<td>上下文</td>
+<td>AI 这一轮对话里知道的背景</td>
 </tr>
 <tr>
-<td>bug / 报错</td>
-<td>程序出了问题。遇到时把这个词连同报错信息一起丢给 AI，它能帮你修</td>
+<td>导出</td>
+<td>把 AI 产出存成 Word/Excel/PPT 文件</td>
+</tr>
+<tr>
+<td>底座模型</td>
+<td>背后真正生成内容的 AI 大脑</td>
+</tr>
+<tr>
+<td>幻觉</td>
+<td>AI 编了你以为真、其实假的内容</td>
+</tr>
+<tr>
+<td>Token</td>
+<td>AI 计费/长度的计量单位，粗略≈字数</td>
 </tr>
 </tbody>
 </table>
 <hr />
-</section><section class="chapter"><h3 id="_3">写在最后</h3>
-<p>这本手册到这里就翻完了。</p>
-<p>它不要求你按顺序读完，也不要求你记住任何东西。<strong>你只需要记得三件事：</strong></p>
-<ol>
-<li><strong>任何麻烦事，都可以先试着对 WorkBuddy 说一句"帮我……"</strong>，说不清楚就先说，它会追问你；</li>
-<li><strong>想让它干得合你心意，就把"给谁看、要什么效果、什么格式"说清楚</strong>，它还听不懂，就换复杂版分步骤；</li>
-<li><strong>删文件、发邮件、签合同这类事，结果出来前多看一眼</strong>——AI 帮你干重活，但方向盘始终在你手里。</li>
-</ol>
-<p>以后每遇到一个新问题，回来翻翻目录，大概率有一篇正好能用。用熟了，你也可以自己写新的场景——毕竟，WorkBuddy 能干什么，答案是：<strong>你想让它干什么，它就能干什么。</strong></p></section>
-
+<p><strong>全书完。</strong> 能读到这，你已经不是「会用」WorkBuddy 的人，而是「懂它怎么干活」的人。下一步：挑一个实战章，真做出来，发小助理。</p>
     </article>
 
 <section class="feedback">
   <div class="fb-inner">
-    <h3 class="fb-title">有话想说？👋</h3>
-    <p class="fb-sub">这本手册是给你写的。哪篇最有用、哪里没看懂、还想让 AI 帮你干点啥——花 1 分钟告诉我，下一篇就写你最想要的。</p>
+    <h3 class="fb-title">读到这里，聊聊？👋</h3>
+    <p class="fb-sub">这本进阶指南是为「已经用过 WorkBuddy」的人写的。哪章最有用、哪里没讲透、还想深入哪块——花 1 分钟告诉我，下个版本就补你最想要的。</p>
     <a class="fb-btn" href="https://wj.qq.com/s2/27662233/ubvs/" target="_blank" rel="noopener">去填反馈问卷（约 1 分钟）↗</a>
     <p class="fb-note">问卷在另一个页面打开，填完直接关掉就好 · 匿名、不用登录</p>
   </div>
@@ -986,39 +1485,24 @@ blockquote.prompt p:last-child{margin-bottom:0;}
   function closeNav(){sidebar.classList.remove('open');backdrop.classList.remove('show');}
   if(menuBtn){menuBtn.addEventListener('click',openNav);}
   if(backdrop){backdrop.addEventListener('click',closeNav);}
-
-  // 点击目录：移动端自动收起
   var tocLinks=document.querySelectorAll('#toc a');
   tocLinks.forEach(function(a){a.addEventListener('click',function(){closeNav();});});
-
-  // 滚动高亮当前章节
   var sections=document.querySelectorAll('h2,h3');
   var map=new Map();
-  sections.forEach(function(el){
-    if(el.id) map.set(el.id, el);
-  });
+  sections.forEach(function(el){ if(el.id) map.set(el.id, el); });
   var activeLink=null;
   function setActive(id){
     tocLinks.forEach(function(a){
-      if(a.getAttribute('href')==='#'+id){
-        a.classList.add('active'); activeLink=a;
-      } else a.classList.remove('active');
+      if(a.getAttribute('href')==='#'+id){ a.classList.add('active'); activeLink=a; }
+      else a.classList.remove('active');
     });
   }
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting) setActive(en.target.id);
-    });
+    entries.forEach(function(en){ if(en.isIntersecting) setActive(en.target.id); });
   },{rootMargin:'-15% 0px -70% 0px'});
   sections.forEach(function(el){ if(el.id) io.observe(el); });
-
-  // 回到顶部
-  window.addEventListener('scroll',function(){
-    topBtn.classList.toggle('show',window.scrollY>600);
-  });
+  window.addEventListener('scroll',function(){ topBtn.classList.toggle('show',window.scrollY>600); });
   topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-
-  // 复制 Prompt
   document.querySelectorAll('blockquote.prompt').forEach(function(bq){
     var btn=bq.querySelector('.copy-btn');
     if(!btn) return;

@@ -8,7 +8,7 @@ SRC = "/Users/zhangliang/WorkBuddy/2026-08-24-13-51-12/WorkBuddy能干什么-小
 OUT = "/Users/zhangliang/WorkBuddy/2026-08-24-13-51-12/WorkBuddy能干什么-小白场景手册-全本.html"
 # 反馈问卷链接：建好腾讯问卷/金数据后，把"发布链接"填到这里，重跑脚本并重新部署
 FEEDBACK_FORM_URL = "https://wj.qq.com/s2/27662233/ubvs/"
-ADV_URL = "https://db35defa94634ba68eb2193a9cd819f6.app.workbuddy.link"
+ADV_URL = "jinjie/"
 
 # 小助理二维码（base64 嵌入 HTML，避免外链依赖）
 import base64
