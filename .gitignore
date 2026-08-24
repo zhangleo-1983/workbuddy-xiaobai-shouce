@@ -1,0 +1,14 @@
+# WorkBuddy 会话记忆（含个人隐私/任务日志，不入库）
+.workbuddy/
+
+# 非 v2 入门手册内容：进阶指南与旧草案单独管理
+WorkBuddy小白教程-大纲草案.md
+WorkBuddy进阶指南-全本.html
+WorkBuddy进阶指南-源.md
+_adv_part1.md
+_adv_part2.md
+_convert_adv.py
+deploy-adv/
+
+# 系统文件
+.DS_Store
